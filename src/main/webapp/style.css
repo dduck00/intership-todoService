@@ -1,0 +1,41 @@
+div{
+    margin-left:20%;
+    margin-top: 100px;
+    display: inline-flex;
+}
+a{
+    float:right;
+}
+section{
+    width:360px;
+    padding:0px;
+}
+
+article{
+    margin: 15px;
+    height: 60px;
+    padding:15px;
+    width: 300px;
+    display: inline-block;
+}
+
+.title_row{
+    background-color: red;
+}
+
+.card{
+    background-color: aqua;
+}
+
+.card h3{
+    margin:0px;
+}
+
+.card h5{
+    margin:0px;
+    display: inline-block;
+}
+
+#DONE button{
+    visibility: hidden;
+}
