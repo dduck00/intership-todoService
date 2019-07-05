@@ -3,9 +3,6 @@ div{
     margin-top: 100px;
     display: inline-flex;
 }
-a{
-    float:right;
-}
 section{
     width:360px;
     padding:0px;
@@ -20,7 +17,11 @@ article{
 }
 
 .title_row{
-    background-color: red;
+    text-align: center;
+}
+
+.title_row{
+    background-color: rgb(61, 175, 228);
 }
 
 .card{
@@ -38,4 +39,14 @@ article{
 
 #DONE button{
     visibility: hidden;
+}
+
+.makefilebutton{
+    background-color: aqua;
+    width:100px;
+    height:60px;
+    text-decoration: none;
+    margin:15px;
+    border:0px;
+    padding:0;
 }
