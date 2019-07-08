@@ -13,13 +13,14 @@
 </head>
 <body>
 
-	<c:forEach var="todo" items="${data}">
+	<c:forEach var="todo" items="${listTodos}">
 		<br>
 		<c:out value="${todo.getTitle()}" />
 	</c:forEach>
 
 
 	<script>
+	<!-- AJAX 테스트 필요  -->
 		function ajax(data) {
 			var oReq = new XMLHttpRequest();
 			oReq.addEventListener("load", function() {

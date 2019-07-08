@@ -18,6 +18,7 @@ public class addTodo extends HttpServlet {
 	private static final TodoDao DB_CONNECTOR = new TodoDao();
 
 	@Override
+	//TODO: AJAX 테스트 필요
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 		response.setCharacterEncoding("utf-8");

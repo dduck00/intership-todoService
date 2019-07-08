@@ -8,10 +8,6 @@ public class TodoDto {
 	private String title;
 	private String type;
 
-	public TodoDto() {
-
-	}
-
 	public long getId() {
 		return id;
 	}

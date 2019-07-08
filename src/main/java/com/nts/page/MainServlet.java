@@ -21,11 +21,11 @@ public class MainServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
-		List<TodoDto> aaa = DB_CONNECTOR.getTodos();
+		List<TodoDto> listTodos = DB_CONNECTOR.getTodos();
 
 		response.setCharacterEncoding("utf-8");
 		request.setCharacterEncoding("utf-8");
-		request.setAttribute("data", aaa);
+		request.setAttribute("listTodos", listTodos);
 
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/index.jsp");
 		requestDispatcher.forward(request, response);
