@@ -36,14 +36,14 @@ public class TodoDao {
 
 	}
 
-	public int addTodo(TodoDto addTodo) throws SQLException {
+	public int addTodo(TodoDto todo) throws SQLException {
 		int result = 0;
 
 		try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWD);
 			PreparedStatement ps = conn.prepareStatement(INSERT_TODO)) {
-			ps.setString(1, addTodo.getTitle());
-			ps.setString(2, addTodo.getName());
-			ps.setInt(3, addTodo.getSequence());
+			ps.setString(1, todo.getTitle());
+			ps.setString(2, todo.getName());
+			ps.setInt(3, todo.getSequence());
 
 			result = ps.executeUpdate();
 		}
@@ -52,7 +52,7 @@ public class TodoDao {
 	}
 
 	public List<TodoDto> getTodos() throws SQLException {
-		List<TodoDto> listTodos = new ArrayList<>();
+		List<TodoDto> listTodo = new ArrayList<>();
 
 		try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWD);
 			PreparedStatement ps = conn.prepareStatement(SELECT_TODOS)) {
@@ -68,23 +68,23 @@ public class TodoDao {
 					todo.setTitle(rs.getString("title"));
 					todo.setType(rs.getString("type"));
 
-					listTodos.add(todo);
+					listTodo.add(todo);
 				}
 
 			}
 
 		}
 
-		return listTodos;
+		return listTodo;
 	}
 
-	public int updateTodo(TodoDto updateTodo) throws SQLException {
+	public int updateTodo(TodoDto todo) throws SQLException {
 		int result = 0;
 
 		try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWD);
 			PreparedStatement ps = conn.prepareStatement(UPDATE_TODO)) {
-			ps.setString(1, updateTodo.getType());
-			ps.setLong(2, updateTodo.getId());
+			ps.setString(1, todo.getType());
+			ps.setLong(2, todo.getId());
 
 			result = ps.executeUpdate();
 		}
