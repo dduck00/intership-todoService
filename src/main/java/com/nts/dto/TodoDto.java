@@ -1,7 +1,7 @@
 package com.nts.dto;
 
 public class TodoDto {
-	private Long id;
+	private long id;
 	private String name;
 	private String regdate;
 	private int sequence;
@@ -12,11 +12,11 @@ public class TodoDto {
 
 	}
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
