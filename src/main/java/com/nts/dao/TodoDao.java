@@ -10,9 +10,9 @@ import java.util.List;
 import com.nts.dto.TodoDto;
 
 public class TodoDao {
-	private static final String DB_URL = "jdbc:mysql://localhost:3306/PTJ2?serverTimezone=UTC";
-	private static final String DB_USER = "root";
-	private static final String DB_PASSWD = "0928";
+	private static final String DB_URL = "jdbc:mysql://10.113.116.52:13306/user9";
+	private static final String DB_USER = "user9";
+	private static final String DB_PASSWD = "user9";
 
 	private static final String SELECT_TODOS = "select id, title, name, sequence, type, regdate "
 		+ "from todo "
@@ -26,11 +26,13 @@ public class TodoDao {
 		+ "values(?, ?, ?);";
 
 	public TodoDao() {
+
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e1) {
 			System.out.println("CLASS Load FAIL");
 		}
+
 	}
 
 	public int addTodo(TodoDto addTodo) {
