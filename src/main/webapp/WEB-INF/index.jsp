@@ -15,10 +15,22 @@
 
 	<c:forEach var="todo" items="${data}">
 		<br>
-		<c:out value="${todo.getTitle()}"/>
+		<c:out value="${todo.getTitle()}" />
 	</c:forEach>
 
 
+	<script>
+		function ajax(data) {
+			var oReq = new XMLHttpRequest();
+			oReq.addEventListener("load", function() {
+				console.log(this.responseText);
+			});
+			oReq.open("POST", "/addTodo", true);//parameter를 붙여서 보낼수있음. 
+			oReq.send();
+		}
+
+		ajax();
+	</script>
 
 </body>
 </html>

@@ -18,19 +18,29 @@ public class addTodo extends HttpServlet {
 	private static final TodoDao DB_CONNECTOR = new TodoDao();
 
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 		response.setCharacterEncoding("utf-8");
+		response.setContentType("application/json");
 		request.setCharacterEncoding("utf-8");
+		PrintWriter out = response.getWriter();
+		out.write("ASDF");
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+		throws ServletException, IOException {
+
+		response.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("utf-8");
+
 		TodoDto todo = new TodoDto();
 		todo.setName(request.getParameter("name"));
 		todo.setSequence(Integer.parseInt(request.getParameter("sequence")));
 		todo.setTitle(request.getParameter("title"));
 		DB_CONNECTOR.addTodo(todo);
-		PrintWriter out = response.getWriter();
-		out.println(todo.getName());
-		out.println(todo.getSequence());
-		out.println(todo.getTitle());
+
+		response.sendRedirect("/main");
 	}
 
 }
