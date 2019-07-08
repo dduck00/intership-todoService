@@ -1,9 +1,11 @@
 package com.nts.dto;
 
+import java.sql.Timestamp;
+
 public class TodoDto {
 	private long id;
 	private String name;
-	private String regdate;
+	private Timestamp regdate;
 	private int sequence;
 	private String title;
 	private String type;
@@ -24,11 +26,11 @@ public class TodoDto {
 		this.name = name;
 	}
 
-	public String getRegdate() {
+	public Timestamp getRegdate() {
 		return regdate;
 	}
 
-	public void setRegdate(String regdate) {
+	public void setRegdate(Timestamp regdate) {
 		this.regdate = regdate;
 	}
 

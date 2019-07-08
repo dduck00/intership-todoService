@@ -63,7 +63,7 @@ public class TodoDao {
 					TodoDto todo = new TodoDto();
 					todo.setId(rs.getLong("id"));
 					todo.setName(rs.getString("name"));
-					todo.setRegdate(rs.getString("regdate"));
+					todo.setRegdate(rs.getTimestamp("regdate"));
 					todo.setSequence(rs.getInt("sequence"));
 					todo.setTitle(rs.getString("title"));
 					todo.setType(rs.getString("type"));
