@@ -2,6 +2,7 @@ package com.nts.page;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,7 +23,6 @@ public class addTodo extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 		response.setCharacterEncoding("utf-8");
-		response.setContentType("application/json");
 		request.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
 		out.write("ASDF");
@@ -39,8 +39,12 @@ public class addTodo extends HttpServlet {
 		todo.setName(request.getParameter("name"));
 		todo.setSequence(Integer.parseInt(request.getParameter("sequence")));
 		todo.setTitle(request.getParameter("title"));
-		DB_CONNECTOR.addTodo(todo);
-
+		try {
+			DB_CONNECTOR.addTodo(todo);
+		} catch (SQLException e) {
+			response.sendRedirect("/error.jsp");
+		}
+		doGet(request, response);
 		response.sendRedirect("/main");
 	}
 

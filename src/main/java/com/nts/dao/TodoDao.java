@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class TodoDao {
 
 	}
 
-	public int addTodo(TodoDto addTodo) {
+	public int addTodo(TodoDto addTodo) throws SQLException {
 		int result = 0;
 
 		try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWD);
@@ -43,15 +44,16 @@ public class TodoDao {
 			ps.setString(1, addTodo.getTitle());
 			ps.setString(2, addTodo.getName());
 			ps.setInt(3, addTodo.getSequence());
+
 			result = ps.executeUpdate();
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (SQLException e) {
+			throw new SQLException();
 		}
 
 		return result;
 	}
 
-	public List<TodoDto> getTodos() {
+	public List<TodoDto> getTodos() throws SQLException {
 		List<TodoDto> listTodos = new ArrayList<>();
 
 		try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWD);
@@ -67,30 +69,32 @@ public class TodoDao {
 					todo.setSequence(rs.getInt("sequence"));
 					todo.setTitle(rs.getString("title"));
 					todo.setType(rs.getString("type"));
+
 					listTodos.add(todo);
 				}
 
-			} catch (Exception e) {
-				e.printStackTrace();
+			} catch (SQLException e) {
+				throw new SQLException();
 			}
 
-		} catch (Exception ex) {
-			ex.printStackTrace();
+		} catch (SQLException ex) {
+			throw new SQLException();
 		}
 
 		return listTodos;
 	}
 
-	public int updateTodo(TodoDto updateTodo) {
+	public int updateTodo(TodoDto updateTodo) throws SQLException {
 		int result = 0;
 
 		try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWD);
 			PreparedStatement ps = conn.prepareStatement(UPDATE_TODO)) {
 			ps.setString(1, updateTodo.getType());
 			ps.setLong(2, updateTodo.getId());
+
 			result = ps.executeUpdate();
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (SQLException e) {
+			throw new SQLException();
 		}
 
 		return result;

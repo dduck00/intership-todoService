@@ -1,6 +1,7 @@
 package com.nts.page;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -21,7 +22,12 @@ public class MainServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
-		List<TodoDto> listTodos = DB_CONNECTOR.getTodos();
+		List<TodoDto> listTodos = null;
+		try {
+			listTodos = DB_CONNECTOR.getTodos();
+		} catch (SQLException e) {
+			response.sendRedirect("/error.jsp");
+		}
 
 		response.setCharacterEncoding("utf-8");
 		request.setCharacterEncoding("utf-8");

@@ -1,10 +1,7 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
-<c:set var="n" scope="request" value="10" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,22 +12,21 @@
 
 	<c:forEach var="todo" items="${listTodos}">
 		<br>
-		<c:out value="${todo.getTitle()}" />
+		<c:out value="${todo.title}" />
+		<br>
+		<c:out value="${todo.getRegdate()}" />
 	</c:forEach>
 
 
 	<script>
-	<!-- AJAX 테스트 필요  -->
-		function ajax(data) {
-			var oReq = new XMLHttpRequest();
-			oReq.addEventListener("load", function() {
-				console.log(this.responseText);
-			});
-			oReq.open("POST", "/addTodo", true);
-			oReq.send();
+		var request = new XMLHttpRequest(); // XMLHttpRequest 생성
+		request.open("GET", "/addTodo"); // 데이터를 GET Method로 요청
+		request.onreadystatechange = function() {
+			if (request.readyState === 4 && request.status === 200) { // request가 끝났으며(4), 성공적(200)인 경우.
+				console.log(request.responseText);
+			}
 		}
-
-		ajax();
+		request.send(null);
 	</script>
 
 </body>
