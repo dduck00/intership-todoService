@@ -8,19 +8,22 @@
 </head>
 
 <body>
-    <h1 style="position:fixed;transform: rotate(330deg);top:60px;">나의 해야할 일들</h1>
-
-
-    <a href="make.html" style="float:right;position:fixed;right:20px;top:20px;">
+    <h1 style="position: fixed;transform: rotate(330deg);top:60px;">나의 해야할 일들</h1>
+    <a href="make.html" style="position: fixed;;float:right;right:20px;top:20px;">
         <article class="title_row" style="margin:0px;text-align:center;">
             <h1>새로운 TODO 등록</h1>
         </article>
     </a>
-
     <div>
         <section id="TODO">
             <article class="title_row">
                 <h1>TODO</h1>
+            </article>
+            <article class="card" id="4">
+                <h3>자바스크립트 공부하기</h3>
+                <br>
+                <h5>등록날짜:2018.03.10, 홍길동, 우선순위 1</h5>
+                <button>-></button>
             </article>
             <article class="card">
                 <h3>자바스크립트 공부하기</h3>
@@ -31,25 +34,43 @@
             <article class="card">
                 <h3>자바스크립트 공부하기</h3>
                 <br>
-                <h5>등록날짜:2018.03.10, 홍길동, 우선순위 12</h5>
+                <h5>등록날짜:2018.03.10, 홍길동, 우선순위 1</h5>
                 <button>-></button>
             </article>
             <article class="card">
                 <h3>자바스크립트 공부하기</h3>
                 <br>
-                <h5>등록날짜:2018.03.10, 홍길동, 우선순위 13</h5>
+                <h5>등록날짜:2018.03.10, 홍길동, 우선순위 1</h5>
                 <button>-></button>
             </article>
             <article class="card">
                 <h3>자바스크립트 공부하기</h3>
                 <br>
-                <h5>등록날짜:2018.03.10, 홍길동, 우선순위 14</h5>
+                <h5>등록날짜:2018.03.10, 홍길동, 우선순위 1</h5>
                 <button>-></button>
             </article>
             <article class="card">
                 <h3>자바스크립트 공부하기</h3>
                 <br>
-                <h5>등록날짜:2018.03.10, 홍길동, 우선순위 15</h5>
+                <h5>등록날짜:2018.03.10, 홍길동, 우선순위 1</h5>
+                <button>-></button>
+            </article>
+            <article class="card">
+                <h3>자바스크립트 공부하기</h3>
+                <br>
+                <h5>등록날짜:2018.03.10, 홍길동, 우선순위 1</h5>
+                <button>-></button>
+            </article>
+            <article class="card">
+                <h3>자바스크립트 공부하기</h3>
+                <br>
+                <h5>등록날짜:2018.03.10, 홍길동, 우선순위 1</h5>
+                <button>-></button>
+            </article>
+            <article class="card">
+                <h3>자바스크립트 공부하기</h3>
+                <br>
+                <h5>등록날짜:2018.03.10, 홍길동, 우선순위 1</h5>
                 <button>-></button>
             </article>
         </section>
@@ -77,15 +98,31 @@
         </section>
     </div>
     <script>
-    
-    var a = document.getElementsByClassName('card');
-    console.log(a[1].getElementsByTagName('button'));
 
-    for(var length = a.length-1; length--;){
-        var temp = a[length].getElementsByTagName('button');
-        console.log(temp.onclick);
-        // // temp.addEventListes
-    }
+        function mouse_click_event(article){
+            var article_info = article;
+            return ()=>{
+                var priority = article_info.id;
+                console.dir(priority);
+            }
+        }
+
+        function ajax(data) {
+            var oReq = new XMLHttpRequest();
+            oReq.addEventListener("load", function () {
+                console.log(this.responseText);
+            });
+            oReq.open("GET", "http://localhost:8080/main", true);//parameter를 붙여서 보낼수있음. 
+            oReq.send();
+        }
+
+        ajax();
+
+        var a = document.querySelectorAll('.card');
+        for (var length = a.length - 1; length--;) {
+            console.log(a[length].querySelector('button').addEventListener('click', mouse_click_event(a[length])));
+        }
+
     </script>
 </body>
 

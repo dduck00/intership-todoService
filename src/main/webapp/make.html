@@ -1,43 +1,41 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
-
 <body style="text-align:center;">
-    <form action="" method="post"
-        style="margin:5% 25%; width:30% ;border: 1px solid black; text-align:left;padding:1% 10% 5% 10%">
-        <h1>
-            할일 등록
-        </h1>
-        <h4 class="left_align">
-            어떤 일인가요?
-        </h4>
-        <input type="text" id="what" maxlength="24" placeholder="swift 공부하기">
-        <h4 class="left_align">
-            누가 할일인가요?
-        </h4>
-        <input type="text" id="who" placeholder="홍길동">
+    <form action="http://localhost:8080/addTodo" method="post">
+        <div style="display:inline-block;margin:5% 25%; width:30% ;border: 1px solid black; text-align:left;padding:1% 10% 5% 10%">
+            <h1>
+                할일 등록
+            </h1>
+            <h4 class="left_align">
+                어떤 일인가요?
+            </h4>
+            <input type="text" name="title" maxlength="24" placeholder="swift 공부하기">
+            <h4 class="left_align">
+                누가 할일인가요?
+            </h4>
+            <input type="text" name="name" placeholder="홍길동">
 
-        <h4 class="left_align">
-            우선순위를 선택하세요
-        </h4>
-        <input type="radio" name="priority" value="1"> 1
-        <input type="radio" name="priority" value="2"> 2
-        <input type="radio" name="priority" value="3"> 3
+            <h4 class="left_align">
+                우선순위를 선택하세요
+            </h4>
+            <input type="radio" name="sequence" value="1" id="sequence"> 1
+            <input type="radio" name="sequence" value="2" id="sequence"> 2
+            <input type="radio" name="sequence" value="3" id="sequence"> 3
 
-        <br>
-        <div class="left_align" style="margin:0px;">
-            <a href="main.html" style="display: inline-flex;margin:0px;text-decoration: none;">
-                <div class="makefilebutton">이전</div>
-            </a>
-            <input class="makefilebutton" type="submit">
-            <input class="makefilebutton" type="reset">
+            <br>
+            <div class="left_align" style="margin:0px;">
+                <a href="main.html" style="display: inline-flex;margin:0px;text-decoration: none;">
+                    <div class="make_file_button">이전</div>
+                </a>
+                <input class="make_file_button" type="submit">
+                <input class="make_file_button" type="reset">
+            </div>
         </div>
     </form>
 </body>
-
 </html>
