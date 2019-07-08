@@ -25,7 +25,7 @@
 			oReq.addEventListener("load", function() {
 				console.log(this.responseText);
 			});
-			oReq.open("POST", "/addTodo", true);//parameter를 붙여서 보낼수있음. 
+			oReq.open("POST", "/addTodo", true);
 			oReq.send();
 		}
 
