@@ -46,8 +46,6 @@ public class TodoDao {
 			ps.setInt(3, addTodo.getSequence());
 
 			result = ps.executeUpdate();
-		} catch (SQLException e) {
-			throw new SQLException();
 		}
 
 		return result;
@@ -73,12 +71,8 @@ public class TodoDao {
 					listTodos.add(todo);
 				}
 
-			} catch (SQLException e) {
-				throw new SQLException();
 			}
 
-		} catch (SQLException ex) {
-			throw new SQLException();
 		}
 
 		return listTodos;
@@ -93,8 +87,6 @@ public class TodoDao {
 			ps.setLong(2, updateTodo.getId());
 
 			result = ps.executeUpdate();
-		} catch (SQLException e) {
-			throw new SQLException();
 		}
 
 		return result;
