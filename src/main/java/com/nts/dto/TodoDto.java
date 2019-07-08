@@ -1,4 +1,4 @@
-package dto;
+package com.nts.dto;
 
 public class TodoDto {
 	private Long id;
@@ -10,15 +10,6 @@ public class TodoDto {
 
 	public TodoDto() {
 
-	}
-
-	public TodoDto(Long id, String name, String regdate, int sequence, String title, String type) {
-		this.id = id;
-		this.name = name;
-		this.regdate = regdate;
-		this.sequence = sequence;
-		this.title = title;
-		this.type = type;
 	}
 
 	public Long getId() {

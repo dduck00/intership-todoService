@@ -1,15 +1,17 @@
-package page.main;
+package com.nts.page;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.TodoDao;
+import com.nts.dao.TodoDao;
+import com.nts.dto.TodoDto;
 
 @WebServlet("/main")
 public class MainServlet extends HttpServlet {
@@ -19,8 +21,22 @@ public class MainServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
-		out.println("ASDF");
+		response.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("utf-8");
+
+		List<TodoDto> aaa = DB_CONNECTOR.getTodos();
+		request.setAttribute("data", aaa);
+		for (TodoDto temp : aaa) {
+			System.out.println(temp.getName());
+			System.out.println(temp.getRegdate());
+			System.out.println(temp.getSequence());
+			System.out.println(temp.getTitle());
+			System.out.println(temp.getType());
+			System.out.println(temp.getId());
+		}
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/index.jsp");
+		requestDispatcher.forward(request, response);
+
 	}
 
 	@Override

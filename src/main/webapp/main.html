@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -12,7 +12,7 @@
 
 
     <a href="make.html" style="float:right;position:fixed;right:20px;top:20px;">
-        <article class="card title_row" style="margin:0px;text-align:center;">
+        <article class="title_row" style="margin:0px;text-align:center;">
             <h1>새로운 TODO 등록</h1>
         </article>
     </a>
@@ -31,25 +31,25 @@
             <article class="card">
                 <h3>자바스크립트 공부하기</h3>
                 <br>
-                <h5>등록날짜:2018.03.10, 홍길동, 우선순위 1</h5>
+                <h5>등록날짜:2018.03.10, 홍길동, 우선순위 12</h5>
                 <button>-></button>
             </article>
             <article class="card">
                 <h3>자바스크립트 공부하기</h3>
                 <br>
-                <h5>등록날짜:2018.03.10, 홍길동, 우선순위 1</h5>
+                <h5>등록날짜:2018.03.10, 홍길동, 우선순위 13</h5>
                 <button>-></button>
             </article>
             <article class="card">
                 <h3>자바스크립트 공부하기</h3>
                 <br>
-                <h5>등록날짜:2018.03.10, 홍길동, 우선순위 1</h5>
+                <h5>등록날짜:2018.03.10, 홍길동, 우선순위 14</h5>
                 <button>-></button>
             </article>
             <article class="card">
                 <h3>자바스크립트 공부하기</h3>
                 <br>
-                <h5>등록날짜:2018.03.10, 홍길동, 우선순위 1</h5>
+                <h5>등록날짜:2018.03.10, 홍길동, 우선순위 15</h5>
                 <button>-></button>
             </article>
         </section>
@@ -60,7 +60,7 @@
             <article class="card">
                 <h3>자바스크립트 공부하기</h3>
                 <br>
-                <h5>등록날짜:2018.03.10, 홍길동, 우선순위 1</h5>
+                <h5>등록날짜:2018.03.10, 홍길동, 우선순위 16</h5>
                 <button>-></button>
             </article>
         </section>
@@ -71,11 +71,22 @@
             <article class="card">
                 <h3>자바스크립트 공부하기</h3>
                 <br>
-                <h5>등록날짜:2018.03.10, 홍길동, 우선순위 1</h5>
+                <h5>등록날짜:2018.03.10, 홍길동, 우선순위 17</h5>
                 <button>-></button>
             </article>
         </section>
     </div>
+    <script>
+    
+    var a = document.getElementsByClassName('card');
+    console.log(a[1].getElementsByTagName('button'));
+
+    for(var length = a.length-1; length--;){
+        var temp = a[length].getElementsByTagName('button');
+        console.log(temp.onclick);
+        // // temp.addEventListes
+    }
+    </script>
 </body>
 
 </html>
