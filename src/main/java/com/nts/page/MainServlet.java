@@ -34,7 +34,7 @@ public class MainServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		request.setAttribute("listTodo", listTodo);
 
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/index.jsp");
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/jsps/index.jsp");
 		requestDispatcher.forward(request, response);
 	}
 
