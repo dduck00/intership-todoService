@@ -102,9 +102,9 @@
 	        	request.send();
 	        	
 	        	if(article.dataset.type === 'TODO'){
-	        		document.querySelector('#DOING').innerHTML += article_info.innerHTML;
+	        		document.querySelector('#DOING').innerHTML += article_info.outerHTML;
 	        	}else if(article.dataset.type==='DOING'){
-	        		document.querySelector('#DONE').innerHTML += article_info.innerHTML;
+	        		document.querySelector('#DONE').innerHTML += article_info.outerHTML;
 	        	}
 	        	
 	        	
