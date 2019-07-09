@@ -23,8 +23,7 @@
 			<article class="title_row">
 				<h1>TODO</h1>
 			</article>
-
-			<c:forEach var="todo" items="${listTodo}">
+			<c:forEach var="todo" items="${Todos}">
 				<article class="card" id="<c:out value="${todo.id}" />"
 					data-area="<c:out value="${todo.type}" />">
 					<h3>
@@ -33,7 +32,8 @@
 					<br>
 					<h5>
 						등록날짜:
-						<fmt:formatDate type="date" pattern ="yyyy.MM.dd" value="${todo.regdate}" />
+						<fmt:formatDate type="date" pattern="yyyy.MM.dd"
+							value="${todo.regdate}" />
 						,
 						<c:out value="${todo.name}" />
 						, 우선순위
@@ -47,15 +47,52 @@
 			<article class="title_row">
 				<h1>DOING</h1>
 			</article>
+			<c:forEach var="todo" items="${Doings}">
+				<article class="card" id="<c:out value="${todo.id}" />"
+					data-area="<c:out value="${todo.type}" />">
+					<h3>
+						<c:out value="${todo.title}" />
+					</h3>
+					<br>
+					<h5>
+						등록날짜:
+						<fmt:formatDate type="date" pattern="yyyy.MM.dd"
+							value="${todo.regdate}" />
+						,
+						<c:out value="${todo.name}" />
+						, 우선순위
+						<c:out value="${todo.sequence}" />
+					</h5>
+					<button>-></button>
+				</article>
+			</c:forEach>
 		</section>
 		<section id="DONE">
 			<article class="title_row">
 				<h1>DONE</h1>
 			</article>
+			<c:forEach var="todo" items="${Dones}">
+				<article class="card" id="<c:out value="${todo.id}" />"
+					data-area="<c:out value="${todo.type}" />">
+					<h3>
+						<c:out value="${todo.title}" />
+					</h3>
+					<br>
+					<h5>
+						등록날짜:
+						<fmt:formatDate type="date" pattern="yyyy.MM.dd"
+							value="${todo.regdate}" />
+						,
+						<c:out value="${todo.name}" />
+						, 우선순위
+						<c:out value="${todo.sequence}" />
+					</h5>
+					<button>-></button>
+				</article>
+			</c:forEach>
 		</section>
 	</div>
-	<c:forEach var="todo" items="${listTodo}">
-	</c:forEach>
+
 
 
 	<script>

@@ -2,6 +2,7 @@ package com.nts.page;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -32,7 +33,24 @@ public class MainServlet extends HttpServlet {
 
 		response.setCharacterEncoding("utf-8");
 		request.setCharacterEncoding("utf-8");
-		request.setAttribute("listTodo", listTodo);
+
+		List<TodoDto> Todos = new ArrayList<TodoDto>();
+		List<TodoDto> Doings = new ArrayList<TodoDto>();
+		List<TodoDto> Dones = new ArrayList<TodoDto>();
+
+		for (TodoDto todo : listTodo) {
+			if (todo.getType().equals("TODO")) {
+				Todos.add(todo);
+			} else if (todo.getType().equals("DOING")) {
+				Doings.add(todo);
+			} else if (todo.getType().equals("DONE")) {
+				Dones.add(todo);
+			}
+		}
+
+		request.setAttribute("Todos", Todos);
+		request.setAttribute("Doings", Doings);
+		request.setAttribute("Dones", Dones);
 
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/jsps/index.jsp");
 		requestDispatcher.forward(request, response);
