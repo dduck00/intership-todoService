@@ -5,12 +5,15 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.nts.dto.TodoDto;
 
 public class TodoDao {
+	private static final DateTimeFormatter DATE_PATTERN_DATA = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+
 	private static final String DB_URL = "jdbc:mysql://10.113.116.52:13306/user9";
 	private static final String DB_USER = "user9";
 	private static final String DB_PASSWD = "user9";
@@ -67,7 +70,6 @@ public class TodoDao {
 					todo.setSequence(rs.getInt("sequence"));
 					todo.setTitle(rs.getString("title"));
 					todo.setType(rs.getString("type"));
-
 					listTodo.add(todo);
 				}
 
