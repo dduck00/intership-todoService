@@ -32,14 +32,12 @@ public class ButtonServlet extends HttpServlet {
 
 		if (todo.getType().equals("TODO")) {
 			todo.setType("DOING");
-			System.out.println(todo.getType());
 		} else if (todo.getType().equals("DOING")) {
 			todo.setType("DONE");
 		}
 
 		try {
-			int ret = todoAccess.updateTodo(todo);
-			System.out.println(ret);
+			todoAccess.updateTodo(todo);
 		} catch (SQLException e) {
 			throw new RuntimeException();
 		}

@@ -33,17 +33,15 @@
 						</h3>
 						<br>
 						<h5>
-							등록날짜:
-							<fmt:formatDate type="date" pattern="yyyy.MM.dd"
-								value="${todo.regdate}" />
+							등록날짜: <fmt:formatDate type="date" pattern="yyyy.MM.dd" value="${todo.regdate}" />
 							,
 							<c:out value="${todo.name}" />
 							, 우선순위
 							<c:out value="${todo.sequence}" />
 						</h5>
-						<input type="submit" value="→"></input> <input type="hidden"
-							name="id" value="<c:out value="${todo.id}" />"> <input
-							type="hidden" name="type" value="<c:out value="${todo.type}" />">
+						<input type="submit" class = "button" value="→"></input>
+						<input type="hidden" name="id" value="<c:out value="${todo.id}" />">
+						<input type="hidden" name="type" value="<c:out value="${todo.type}" />">
 					</article>
 				</form>
 			</c:forEach>
@@ -56,23 +54,25 @@
 			</article>
 
 			<c:forEach var="todo" items="${Doings}">
-				<article class="card" id="<c:out value="${todo.id}" />"
-					data-area="<c:out value="${todo.type}" />">
-					<h3>
-						<c:out value="${todo.title}" />
-					</h3>
-					<br>
-					<h5>
-						등록날짜:
-						<fmt:formatDate type="date" pattern="yyyy.MM.dd"
-							value="${todo.regdate}" />
-						,
-						<c:out value="${todo.name}" />
-						, 우선순위
-						<c:out value="${todo.sequence}" />
-					</h5>
-					<button>-></button>
-				</article>
+				<form action="/action" method="POST">
+					<article class="card" id="<c:out value="${todo.id}" />"
+						value="<c:out value="${todo.type}" />">
+						<h3>
+							<c:out value="${todo.title}" />
+						</h3>
+						<br>
+						<h5>
+							등록날짜: <fmt:formatDate type="date" pattern="yyyy.MM.dd" value="${todo.regdate}" />
+							,
+							<c:out value="${todo.name}" />
+							, 우선순위
+							<c:out value="${todo.sequence}" />
+						</h5>
+						<input type="submit" class="button" value="→"></input>
+						<input type="hidden" name="id" value="<c:out value="${todo.id}" />">
+						<input type="hidden" name="type" value="<c:out value="${todo.type}" />">
+					</article>
+				</form>
 			</c:forEach>
 
 		</section>
@@ -83,23 +83,22 @@
 			</article>
 
 			<c:forEach var="todo" items="${Dones}">
-				<article class="card" id="<c:out value="${todo.id}" />"
-					data-area="<c:out value="${todo.type}" />">
-					<h3>
-						<c:out value="${todo.title}" />
-					</h3>
-					<br>
-					<h5>
-						등록날짜:
-						<fmt:formatDate type="date" pattern="yyyy.MM.dd"
-							value="${todo.regdate}" />
-						,
-						<c:out value="${todo.name}" />
-						, 우선순위
-						<c:out value="${todo.sequence}" />
-					</h5>
-					<button>-></button>
-				</article>
+				<form action="/action" method="POST">
+					<article class="card" id="<c:out value="${todo.id}" />"
+						value="<c:out value="${todo.type}"/>">
+						<h3>
+							<c:out value="${todo.title}" />
+						</h3>
+						<br>
+						<h5>
+							등록날짜: <fmt:formatDate type="date" pattern="yyyy.MM.dd" value="${todo.regdate}" />
+							,
+							<c:out value="${todo.name}" />
+							, 우선순위
+							<c:out value="${todo.sequence}" />
+						</h5>
+					</article>
+				</form>
 			</c:forEach>
 
 		</section>

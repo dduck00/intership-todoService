@@ -38,11 +38,13 @@ public class AddTodoServlet extends HttpServlet {
 		todo.setName(request.getParameter("name"));
 		todo.setSequence(Integer.parseInt(request.getParameter("sequence")));
 		todo.setTitle(request.getParameter("title"));
+
 		try {
 			DB_CONNECTOR.addTodo(todo);
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
+
 		response.sendRedirect("/main");
 	}
 

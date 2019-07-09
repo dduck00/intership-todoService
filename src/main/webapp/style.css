@@ -37,10 +37,6 @@ article{
     display: inline-block;
 }
 
-#DONE button{
-    visibility: hidden;
-}
-
 .make_file_button{
     background-color: aqua;
     width:100px;
