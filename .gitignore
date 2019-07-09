@@ -1,6 +1,6 @@
 
-# Created by https://www.gitignore.io/api/windows,eclipse,java-web
-# Edit at https://www.gitignore.io/?templates=windows,eclipse,java-web
+# Created by https://www.gitignore.io/api/maven,windows,eclipse,java-web
+# Edit at https://www.gitignore.io/?templates=maven,windows,eclipse,java-web
 
 ### Eclipse ###
 .metadata
@@ -75,6 +75,17 @@ local.properties
 ## ignoring target file
 target/
 
+### Maven ###
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
@@ -101,4 +112,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.gitignore.io/api/windows,eclipse,java-web
+# End of https://www.gitignore.io/api/maven,windows,eclipse,java-web
