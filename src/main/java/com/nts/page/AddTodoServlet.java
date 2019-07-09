@@ -1,9 +1,9 @@
 package com.nts.page;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,10 +22,9 @@ public class AddTodoServlet extends HttpServlet {
 	//TODO: AJAX 테스트 필요
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
-		response.setCharacterEncoding("utf-8");
-		request.setCharacterEncoding("utf-8");
-		PrintWriter out = response.getWriter();
-		out.write("ASDF");
+
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/jsps/registerTodo.jsp");
+		requestDispatcher.forward(request, response);
 	}
 
 	@Override
@@ -44,7 +43,6 @@ public class AddTodoServlet extends HttpServlet {
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
-		doGet(request, response);
 		response.sendRedirect("/main");
 	}
 

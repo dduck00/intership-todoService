@@ -12,7 +12,7 @@
 <body>
 	<h1 style="position: fixed; transform: rotate(330deg); top: 60px;">나의
 		해야할 일들</h1>
-	<a href="make.html"
+	<a href="/addTodo"
 		style="position: fixed;; float: right; right: 20px; top: 20px;">
 		<article class="title_row" style="margin: 0px; text-align: center;">
 			<h1>새로운 TODO 등록</h1>
@@ -23,6 +23,7 @@
 			<article class="title_row">
 				<h1>TODO</h1>
 			</article>
+			
 			<c:forEach var="todo" items="${Todos}">
 				<article class="card" id="<c:out value="${todo.id}" />"
 					data-area="<c:out value="${todo.type}" />">
@@ -42,11 +43,14 @@
 					<button>-></button>
 				</article>
 			</c:forEach>
+			
 		</section>
+		
 		<section id="DOING">
 			<article class="title_row">
 				<h1>DOING</h1>
 			</article>
+			
 			<c:forEach var="todo" items="${Doings}">
 				<article class="card" id="<c:out value="${todo.id}" />"
 					data-area="<c:out value="${todo.type}" />">
@@ -66,11 +70,14 @@
 					<button>-></button>
 				</article>
 			</c:forEach>
+			
 		</section>
+		
 		<section id="DONE">
 			<article class="title_row">
 				<h1>DONE</h1>
 			</article>
+			
 			<c:forEach var="todo" items="${Dones}">
 				<article class="card" id="<c:out value="${todo.id}" />"
 					data-area="<c:out value="${todo.type}" />">
@@ -90,6 +97,7 @@
 					<button>-></button>
 				</article>
 			</c:forEach>
+			
 		</section>
 	</div>
 
