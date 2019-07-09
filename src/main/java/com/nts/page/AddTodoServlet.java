@@ -14,7 +14,7 @@ import com.nts.dao.TodoDao;
 import com.nts.dto.TodoDto;
 
 @WebServlet("/addTodo")
-public class addTodo extends HttpServlet {
+public class AddTodoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final TodoDao DB_CONNECTOR = new TodoDao();
 
