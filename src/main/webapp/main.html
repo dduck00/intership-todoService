@@ -57,18 +57,20 @@
     </div>
     <script>
 
-        function mouse_click_event(article){
-            var article_info = article;
-            return ()=>{
-                var priority = article_info.id;
-                var inner_data = article_info.innerHTML();
-                console.dir(article_info.dataset.area);
+        function mouse_click_event(article) {
+            const article_info = article;
+            return () => {
+                const priority = article_info.id;
+                const inner_data = article_info.innerHTML();
+                if (article_info.dataset.area === "DOING") {
+
+                }
             }
         }
 
         function ajax(data) {
-            var oReq = new XMLHttpRequest();
-            oReq.addEventListener("load", function () {
+            const oReq = new XMLHttpRequest();
+            oReq.addEventListener("load", () => {
                 console.log(this.responseText);
             });
             oReq.open("GET", "/addTodo", true);//parameter를 붙여서 보낼수있음. 
@@ -76,7 +78,7 @@
         }
         ajax();
 
-        var a = document.querySelectorAll('.card');
+        const a = document.querySelectorAll('.card');
         for (var length = a.length - 1; length--;) {
             console.log(a[length].querySelector('button').addEventListener('click', mouse_click_event(a[length])));
         }
