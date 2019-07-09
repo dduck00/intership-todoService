@@ -9,7 +9,7 @@
 </head>
 <body>
 
-	<c:forEach var="todo" items="${listTodos}">
+	<c:forEach var="todo" items="${listTodo}">
 		<br>
 		<c:out value="${todo.title}" />
 		<br>
