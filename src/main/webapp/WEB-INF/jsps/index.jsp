@@ -114,7 +114,7 @@
 		request.open("GET", "/main"); // 데이터를 GET Method로 요청
 		request.onreadystatechange = function() {
 			if (request.readyState === 4 && request.status === 200) { // request가 끝났으며(4), 성공적(200)인 경우.
-				alert(request.responseText);
+				console.log(request.responseText);
 			}
 		}
 		
