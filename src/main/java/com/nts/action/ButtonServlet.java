@@ -1,6 +1,7 @@
 package com.nts.action;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -16,13 +17,8 @@ import com.nts.dto.TodoDto;
 public class ButtonServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public ButtonServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 		TodoDao todoAccess = new TodoDao();
 		TodoDto todo = new TodoDto();
@@ -35,14 +31,16 @@ public class ButtonServlet extends HttpServlet {
 		} else if (todo.getType().equals("DOING")) {
 			todo.setType("DONE");
 		}
-
+		int ret = 0;
 		try {
-			todoAccess.updateTodo(todo);
+			ret = todoAccess.updateTodo(todo);
 		} catch (SQLException e) {
 			throw new RuntimeException();
 		}
 
-		response.sendRedirect("/main");
+		PrintWriter out = response.getWriter();
+		out.println(ret);
+
 	}
 
 }

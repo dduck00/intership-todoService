@@ -25,25 +25,21 @@
 			</article>
 
 			<c:forEach var="todo" items="${Todos}">
-				<form action="/action" method="POST">
-					<article class="card" id="<c:out value="${todo.id}" />"
-						value="<c:out value="${todo.type}" />">
+					<article class="card" data-id="${todo.id}"
+						data-type="${todo.type}">
 						<h3>
-							<c:out value="${todo.title}" />
+							${todo.title}
 						</h3>
 						<br>
 						<h5>
 							등록날짜: <fmt:formatDate type="date" pattern="yyyy.MM.dd" value="${todo.regdate}" />
 							,
-							<c:out value="${todo.name}" />
+							${todo.name}
 							, 우선순위
-							<c:out value="${todo.sequence}" />
+							${todo.sequence}
 						</h5>
-						<input type="submit" class = "button" value="→"></input>
-						<input type="hidden" name="id" value="<c:out value="${todo.id}" />">
-						<input type="hidden" name="type" value="<c:out value="${todo.type}" />">
+						<button>→</button>
 					</article>
-				</form>
 			</c:forEach>
 
 		</section>
@@ -54,25 +50,21 @@
 			</article>
 
 			<c:forEach var="todo" items="${Doings}">
-				<form action="/action" method="POST">
-					<article class="card" id="<c:out value="${todo.id}" />"
-						value="<c:out value="${todo.type}" />">
+					<article class="card" data-id="${todo.id}"
+						data-type="${todo.type}">
 						<h3>
-							<c:out value="${todo.title}" />
+							${todo.title}
 						</h3>
 						<br>
 						<h5>
 							등록날짜: <fmt:formatDate type="date" pattern="yyyy.MM.dd" value="${todo.regdate}" />
 							,
-							<c:out value="${todo.name}" />
+							${todo.name}
 							, 우선순위
-							<c:out value="${todo.sequence}" />
+							${todo.sequence}
 						</h5>
-						<input type="submit" class="button" value="→"></input>
-						<input type="hidden" name="id" value="<c:out value="${todo.id}" />">
-						<input type="hidden" name="type" value="<c:out value="${todo.type}" />">
+						<button>→</button>
 					</article>
-				</form>
 			</c:forEach>
 
 		</section>
@@ -83,18 +75,18 @@
 			</article>
 
 			<c:forEach var="todo" items="${Dones}">
-				<article class="card" id="<c:out value="${todo.id}" />"
-					value="<c:out value="${todo.type}"/>">
+					<article class="card" data-id="${todo.id}"
+						data-type="${todo.type}">
 					<h3>
-						<c:out value="${todo.title}" />
+						${todo.title}
 					</h3>
 					<br>
 					<h5>
 						등록날짜: <fmt:formatDate type="date" pattern="yyyy.MM.dd" value="${todo.regdate}" />
 						,
-						<c:out value="${todo.name}" />
+						${todo.name}
 						, 우선순위
-						<c:out value="${todo.sequence}" />
+						${todo.sequence}
 					</h5>
 				</article>
 			</c:forEach>
@@ -106,20 +98,33 @@
 	    function mouse_click_event(article) {
 	        const article_info = article;
 	        return () => {
-	            request.send(null);
+	        	request.open("GET", "/action?id="+article.dataset.id+"&type="+article.dataset.type)
+	        	request.send();
+	        	
+	        	if(article.dataset.type === 'TODO'){
+	        		document.querySelector('#DOING').innerHTML += article_info.innerHTML;
+	        	}else if(article.dataset.type==='DOING'){
+	        		document.querySelector('#DONE').innerHTML += article_info.innerHTML;
+	        	}
+	        	
+	        	
+	        	article_info.remove();
+	        	
+	        	
+	        	
+	        	
 	        }
 	    }
 	
-		var request = new XMLHttpRequest(); // XMLHttpRequest 생성
-		request.open("GET", "/main"); // 데이터를 GET Method로 요청
-		request.onreadystatechange = function() {
+		const request = new XMLHttpRequest(); // XMLHttpRequest 생성
+		request.onreadystatechange = () => {
 			if (request.readyState === 4 && request.status === 200) { // request가 끝났으며(4), 성공적(200)인 경우.
 				console.log(request.responseText);
 			}
 		}
+
 		
-		
-        const a = document.querySelectorAll('form article');
+        const a = document.querySelectorAll('.card');
         console.log(a);
         for (var length = 0; length < a.length; length++) {
             console.dir(a[length].addEventListener('click', mouse_click_event(a[length])));
