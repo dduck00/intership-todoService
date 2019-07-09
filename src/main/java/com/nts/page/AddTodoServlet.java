@@ -42,7 +42,7 @@ public class AddTodoServlet extends HttpServlet {
 		try {
 			DB_CONNECTOR.addTodo(todo);
 		} catch (SQLException e) {
-			response.sendRedirect("/error.jsp");
+			throw new RuntimeException(e);
 		}
 		doGet(request, response);
 		response.sendRedirect("/main");

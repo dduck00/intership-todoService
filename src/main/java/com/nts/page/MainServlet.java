@@ -22,16 +22,17 @@ public class MainServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
-		List<TodoDto> listTodos = null;
+		List<TodoDto> listTodo = null;
+
 		try {
-			listTodos = DB_CONNECTOR.getTodos();
+			listTodo = DB_CONNECTOR.getTodos();
 		} catch (SQLException e) {
-			response.sendRedirect("/error.jsp");
+			throw new RuntimeException(e);
 		}
 
 		response.setCharacterEncoding("utf-8");
 		request.setCharacterEncoding("utf-8");
-		request.setAttribute("listTodos", listTodos);
+		request.setAttribute("listTodo", listTodo);
 
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/index.jsp");
 		requestDispatcher.forward(request, response);
