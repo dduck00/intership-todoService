@@ -99,8 +99,11 @@
 	    function mouse_click_event(article) {
 	        const article_info = article;
 	        return () => {
-	        	request.open("GET", "/action?id="+article.dataset.id+"&type="+article.dataset.type)
-	        	request.send();
+	        	const move_information = 'id='+article.dataset.id+'&type='+article.dataset.type;
+	        	
+	        	request.open("POST", '/action');
+	        	request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	        	request.send(move_information);
 
 	        	article_info.remove();
 	        	
@@ -117,10 +120,10 @@
 	        }
 	    }
 	
-		const request = new XMLHttpRequest(); // XMLHttpRequest 생성
+		const request = new XMLHttpRequest();
 		request.onreadystatechange = () => {
-			if (request.readyState === 4 && request.status === 200) { // request가 끝났으며(4), 성공적(200)인 경우.
-				console.log(request.responseText);
+			if (request.readyState === 4 && request.status === 200) { 
+				console.log("ajax 성공");
 			}
 		}
 
@@ -128,7 +131,7 @@
         const a = document.querySelectorAll('.card');
         console.log(a);
         for (var length = 0; length < a.length; length++) {
-            console.dir(a[length].addEventListener('click', mouse_click_event(a[length])));
+            a[length].addEventListener('click', mouse_click_event(a[length]));
         }
         
 	</script>
