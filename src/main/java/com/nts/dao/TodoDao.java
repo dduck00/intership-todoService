@@ -60,15 +60,7 @@ public class TodoDao {
 			try (ResultSet rs = ps.executeQuery()) {
 
 				while (rs.next()) {
-					TodoDto todo = new TodoDto();
-					todo.setId(rs.getLong("id"));
-					todo.setName(rs.getString("name"));
-					todo.setRegdate(rs.getTimestamp("regdate"));
-					todo.setSequence(rs.getInt("sequence"));
-					todo.setTitle(rs.getString("title"));
-					todo.setType(rs.getString("type"));
-
-					listTodo.add(todo);
+					listTodo.add(makeTodo(rs));
 				}
 
 			}
@@ -76,6 +68,19 @@ public class TodoDao {
 		}
 
 		return listTodo;
+	}
+
+	public TodoDto makeTodo(ResultSet rs) throws SQLException, NullPointerException {
+		TodoDto todo = new TodoDto();
+
+		todo.setId(rs.getLong("id"));
+		todo.setName(rs.getString("name"));
+		todo.setRegdate(rs.getTimestamp("regdate"));
+		todo.setSequence(rs.getInt("sequence"));
+		todo.setTitle(rs.getString("title"));
+		todo.setType(rs.getString("type"));
+
+		return todo;
 	}
 
 	public int updateTodo(TodoDto todo) throws SQLException, NullPointerException {
