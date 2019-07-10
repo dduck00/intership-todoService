@@ -36,7 +36,7 @@ public class TodoDao {
 
 	}
 
-	public int addTodo(TodoDto todo) throws SQLException {
+	public int addTodo(TodoDto todo) throws SQLException, NullPointerException {
 		int result = 0;
 
 		try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWD);
@@ -77,7 +77,7 @@ public class TodoDao {
 		return listTodo;
 	}
 
-	public int updateTodo(TodoDto todo) throws SQLException {
+	public int updateTodo(TodoDto todo) throws SQLException, NullPointerException {
 		int result = 0;
 
 		try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWD);
