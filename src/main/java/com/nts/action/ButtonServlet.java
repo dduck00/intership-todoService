@@ -20,21 +20,27 @@ public class ButtonServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 
-		TodoDao todoAccess = new TodoDao();
-		TodoDto todo = new TodoDto();
-
-		todo.setType(request.getParameter("type"));
-		todo.setId(Long.parseLong(request.getParameter("id")));
-
-		if (todo.getType().equals("TODO")) {
-			todo.setType("DOING");
-		} else if (todo.getType().equals("DOING")) {
-			todo.setType("DONE");
-		}
 		try {
+			TodoDao todoAccess = new TodoDao();
+			TodoDto todo = new TodoDto();
+
+			todo.setType(request.getParameter("type"));
+			todo.setId(Long.parseLong(request.getParameter("id")));
+
+			if (todo.getType().equals("TODO")) {
+				todo.setType("DOING");
+			} else if (todo.getType().equals("DOING")) {
+				todo.setType("DONE");
+			}
+
 			todoAccess.updateTodo(todo);
+
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
+		} catch (NumberFormatException e1) {
+			throw new RuntimeException(e1);
+		} catch (NullPointerException e2) {
+			throw new RuntimeException(e2);
 		}
 
 	}

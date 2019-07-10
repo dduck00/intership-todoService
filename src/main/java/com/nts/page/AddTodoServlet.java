@@ -33,18 +33,20 @@ public class AddTodoServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		request.setCharacterEncoding("utf-8");
 
-		TodoDto todo = new TodoDto();
-		todo.setName(request.getParameter("name"));
-		todo.setSequence(Integer.parseInt(request.getParameter("sequence")));
-		todo.setTitle(request.getParameter("title"));
-
 		try {
+
+			TodoDto todo = new TodoDto();
+			todo.setName(request.getParameter("name"));
+			todo.setSequence(Integer.parseInt(request.getParameter("sequence")));
+			todo.setTitle(request.getParameter("title"));
+
 			DB_CONNECTOR.addTodo(todo);
+
+			response.sendRedirect("/main");
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
 
-		response.sendRedirect("/main");
 	}
 
 }

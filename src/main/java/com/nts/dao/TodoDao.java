@@ -30,8 +30,8 @@ public class TodoDao {
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e1) {
-			throw new RuntimeException();
+		} catch (ClassNotFoundException e) {
+			throw new RuntimeException(e);
 		}
 
 	}
@@ -51,7 +51,7 @@ public class TodoDao {
 		return result;
 	}
 
-	public List<TodoDto> getTodos() throws SQLException {
+	public List<TodoDto> getTodos() throws SQLException, NullPointerException {
 		List<TodoDto> listTodo = new ArrayList<>();
 
 		try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWD);

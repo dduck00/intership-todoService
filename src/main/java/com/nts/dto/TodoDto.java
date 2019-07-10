@@ -26,7 +26,10 @@ public class TodoDto {
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(String name) throws NullPointerException {
+		if (name == null) {
+			throw new NullPointerException("Name is null");
+		}
 		this.name = name;
 	}
 
@@ -34,7 +37,10 @@ public class TodoDto {
 		return regdate;
 	}
 
-	public void setRegdate(Timestamp regdate) {
+	public void setRegdate(Timestamp regdate) throws NullPointerException {
+		if (regdate == null) {
+			throw new NullPointerException("regdate is null");
+		}
 		this.regdate = regdate.toLocalDateTime();
 	}
 
@@ -50,7 +56,10 @@ public class TodoDto {
 		return title;
 	}
 
-	public void setTitle(String title) {
+	public void setTitle(String title) throws NullPointerException {
+		if (title == null) {
+			throw new NullPointerException("title is null");
+		}
 		this.title = title;
 	}
 
@@ -58,7 +67,10 @@ public class TodoDto {
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(String type) throws NullPointerException {
+		if (type == null) {
+			throw new NullPointerException("type is null");
+		}
 		this.type = type;
 	}
 
