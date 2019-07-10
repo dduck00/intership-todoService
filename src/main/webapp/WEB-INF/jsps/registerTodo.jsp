@@ -11,7 +11,7 @@
 
 <body style="text-align:center;">
 
-    <form action="/addTodo" method="post">
+    <form action="/add-todo" method="post">
         <div style="display:inline-block;margin:5% 25%; width:30% ;border: 1px solid black; text-align:left;padding:1% 10% 5% 10%">
             <h1>
                 	할일 등록

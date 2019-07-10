@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.nts.dao.TodoDao;
 import com.nts.dto.TodoDto;
 
-@WebServlet("/addTodo")
+@WebServlet("/add-todo")
 public class AddTodoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final TodoDao DB_CONNECTOR = new TodoDao();

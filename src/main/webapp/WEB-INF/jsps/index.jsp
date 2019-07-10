@@ -13,7 +13,7 @@
 	<h1 style="position: fixed; transform: rotate(330deg); top: 60px;">
 		나의 해야할 일들
 	</h1>
-	<a href="/addTodo" style="position: fixed; float: right; right: 20px; top: 20px;">
+	<a href="/add-todo" style="position: fixed; float: right; right: 20px; top: 20px;">
 		<article class="title_row" style="margin: 0px; text-align: center;">
 			<h1>새로운 TODO 등록</h1>
 		</article>
