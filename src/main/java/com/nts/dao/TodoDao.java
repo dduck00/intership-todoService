@@ -67,6 +67,7 @@ public class TodoDao {
 					todo.setSequence(rs.getInt("sequence"));
 					todo.setTitle(rs.getString("title"));
 					todo.setType(rs.getString("type"));
+
 					listTodo.add(todo);
 				}
 
