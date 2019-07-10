@@ -104,7 +104,7 @@
 	        		document.querySelector('#DONE').innerHTML += articleInfo.outerHTML;
 	        	}
 	        	
-        		document.querySelector('#'+articleInfo.id).lastElementChild.addEventListener('click', mouse_click_event(document.querySelector('#'+articleInfo.id)));
+        		document.querySelector('#'+articleInfo.id).lastElementChild.addEventListener('click', mouseClickEvent(document.querySelector('#'+articleInfo.id)));
 	        	
 	        }
 	    }
