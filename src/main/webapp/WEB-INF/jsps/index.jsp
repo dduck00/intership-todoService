@@ -117,10 +117,10 @@
 		}
 
 		
-        const a = document.querySelectorAll('.card');
+        const cards = document.querySelectorAll('.card');
         
-        for (var length = 0; length < a.length; length++) {
-            a[length].lastElementChild.addEventListener('click', mouse_click_event(a[length]));
+        for (var length = 0; length < cards.length; length++) {
+        	cards[length].lastElementChild.addEventListener('click', mouse_click_event(cards[length]));
         }
         
 	</script>
