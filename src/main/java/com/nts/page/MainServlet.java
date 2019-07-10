@@ -37,11 +37,6 @@ public class MainServlet extends HttpServlet {
 			List<TodoDto> Dones = new ArrayList<TodoDto>();
 
 			for (TodoDto todo : listTodo) {
-
-				if (todo == null) {
-					continue;
-				}
-
 				if (todo.getType().equals("TODO")) {
 					Todos.add(todo);
 				} else if (todo.getType().equals("DOING")) {
