@@ -26,7 +26,7 @@
 			</article>
 
 			<c:forEach var="todo" items="${Todos}">
-					<article class="card" id="${todo.id}" data-type="${todo.type}">
+					<article class="card" id="ID${todo.id}" data-type="${todo.type}">
 						<h3>
 							${todo.title}
 						</h3>
@@ -47,7 +47,7 @@
 			</article>
 
 			<c:forEach var="todo" items="${Doings}">
-					<article class="card" id="${todo.id}" data-type="${todo.type}">
+					<article class="card" id="ID${todo.id}" data-type="${todo.type}">
 						<h3>
 							${todo.title}
 						</h3>
@@ -68,7 +68,7 @@
 			</article>
 
 			<c:forEach var="todo" items="${Dones}">
-					<article class="card" id="${todo.id}" data-type="${todo.type}">
+					<article class="card" id="ID${todo.id}" data-type="${todo.type}">
 					<h3>
 						${todo.title}
 					</h3>
@@ -88,7 +88,7 @@
 	    function mouse_click_event(article) {
 	        const article_info = article;
 	        return () => {
-	        	const move_information = 'id='+article_info.id+'&type='+article.dataset.type;
+	        	const move_information = 'id='+article.id.substring(2)+'&type='+article.dataset.type;
 	        	
 	        	request.open("POST", '/action');
 	        	request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -104,7 +104,7 @@
 	        		document.querySelector('#DONE').innerHTML += article_info.outerHTML;
 	        	}
 	        	
-        		document.querySelector('#'+article_info.id).addEventListener('click', mouse_click_event(document.querySelector('#'+article_info.id)));
+        		document.querySelector('#'+article_info.id).lastElementChild.addEventListener('click', mouse_click_event(document.querySelector('#'+article_info.id)));
 	        	
 	        }
 	    }
