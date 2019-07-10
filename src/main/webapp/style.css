@@ -1,14 +1,15 @@
-div{
+div {
     margin-left:20%;
     margin-top: 100px;
     display: inline-flex;
 }
-section{
+
+section {
     width:360px;
     padding:0px;
 }
 
-article{
+article {
     margin: 15px;
     height: 60px;
     padding:15px;
@@ -16,32 +17,32 @@ article{
     display: inline-block;
 }
 
-.title_row{
+.title_row {
     text-align: center;
 }
 
-.title_row{
+.title_row {
     background-color: rgb(61, 175, 228);
 }
 
-.card{
+.card {
     background-color: aqua;
 }
 
-.card h3{
+.card h3 {
     margin:0px;
 }
 
-.card h5{
+.card h5 {
     margin:0px;
     display: inline-block;
 }
 
-#DONE article button{
+#DONE article button {
 	visibility : hidden;
 }
 
-.make_file_button{
+.make_file_button {
     background-color: aqua;
     width:100px;
     height:60px;

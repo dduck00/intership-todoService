@@ -34,7 +34,7 @@ public class TodoDao {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e1) {
-			System.out.println("CLASS Load FAIL");
+			throw new RuntimeException();
 		}
 
 	}

@@ -31,9 +31,8 @@ public class ButtonServlet extends HttpServlet {
 		} else if (todo.getType().equals("DOING")) {
 			todo.setType("DONE");
 		}
-		int ret = 0;
 		try {
-			ret = todoAccess.updateTodo(todo);
+			todoAccess.updateTodo(todo);
 		} catch (SQLException e) {
 			throw new RuntimeException();
 		}
