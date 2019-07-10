@@ -43,8 +43,13 @@ public class AddTodoServlet extends HttpServlet {
 			DB_CONNECTOR.addTodo(todo);
 
 			response.sendRedirect("/main");
+
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
+		} catch (NumberFormatException e1) {
+			throw new RuntimeException(e1);
+		} catch (NullPointerException e2) {
+			throw new RuntimeException(e2);
 		}
 
 	}
