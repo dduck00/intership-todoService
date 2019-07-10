@@ -1,12 +1,15 @@
 package com.nts.dto;
 
 import java.sql.Timestamp;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class TodoDto {
+	private static final DateTimeFormatter DATE_PATTERN_DATA = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+
 	private long id;
 	private String name;
-	private Date regdate;
+	private LocalDateTime regdate;
 	private int sequence;
 	private String title;
 	private String type;
@@ -27,12 +30,12 @@ public class TodoDto {
 		this.name = name;
 	}
 
-	public Date getRegdate() {
+	public LocalDateTime getRegdate() {
 		return regdate;
 	}
 
 	public void setRegdate(Timestamp regdate) {
-		this.regdate = new Date(regdate.getTime());
+		this.regdate = regdate.toLocalDateTime();
 	}
 
 	public int getSequence() {
@@ -57,6 +60,10 @@ public class TodoDto {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public String showRegdate() {
+		return regdate.format(DATE_PATTERN_DATA);
 	}
 
 }

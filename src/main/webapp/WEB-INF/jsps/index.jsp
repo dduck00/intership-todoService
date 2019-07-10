@@ -32,7 +32,7 @@
 						</h3>
 						<br>
 						<h5>
-							등록날짜: <fmt:formatDate type="date" pattern="yyyy.MM.dd" value="${todo.regdate}" />,
+							등록날짜: ${todo.showRegdate()},
 							${todo.name}, 우선순위 ${todo.sequence}
 						</h5>
 						<button>→</button>
@@ -53,7 +53,7 @@
 						</h3>
 						<br>
 						<h5>
-							등록날짜: <fmt:formatDate type="date" pattern="yyyy.MM.dd" value="${todo.regdate}" />,
+							등록날짜: ${todo.showRegdate()},
 							${todo.name}, 우선순위 ${todo.sequence}
 						</h5>
 						<button>→</button>
@@ -74,7 +74,7 @@
 					</h3>
 					<br>
 					<h5>
-						등록날짜: <fmt:formatDate type="date" pattern="yyyy.MM.dd" value="${todo.regdate}" />,
+						등록날짜: ${todo.showRegdate()},
 						${todo.name}, 우선순위 ${todo.sequence}
 					</h5>
 					<button>→</button>
