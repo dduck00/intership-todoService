@@ -16,7 +16,9 @@ public class ErrorServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
-
+		/**
+		 * 로그 처리 부분 수정 필요
+		 */
 		System.out.println(request.getAttribute("javax.servlet.error.message"));
 
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/jsps/error.jsp");
