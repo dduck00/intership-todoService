@@ -62,7 +62,7 @@ public class TodoDto {
 		this.type = type;
 	}
 
-	public String showRegdate() {
+	public String getRegdateAsString() {
 		return regdate.format(DATE_PATTERN_DATA);
 	}
 

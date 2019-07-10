@@ -26,13 +26,13 @@
 			</article>
 
 			<c:forEach var="todo" items="${Todos}">
-					<article class="card" data-id="${todo.id}" id="ID${todo.id}" data-type="${todo.type}">
+					<article class="card" id="${todo.id}" data-type="${todo.type}">
 						<h3>
 							${todo.title}
 						</h3>
 						<br>
 						<h5>
-							등록날짜: ${todo.showRegdate()},
+							등록날짜: ${todo.regdateAsString},
 							${todo.name}, 우선순위 ${todo.sequence}
 						</h5>
 						<button>→</button>
@@ -47,13 +47,13 @@
 			</article>
 
 			<c:forEach var="todo" items="${Doings}">
-					<article class="card" data-id="${todo.id}" id="ID${todo.id}" data-type="${todo.type}">
+					<article class="card" id="${todo.id}" data-type="${todo.type}">
 						<h3>
 							${todo.title}
 						</h3>
 						<br>
 						<h5>
-							등록날짜: ${todo.showRegdate()},
+							등록날짜: ${todo.regdateAsString},
 							${todo.name}, 우선순위 ${todo.sequence}
 						</h5>
 						<button>→</button>
@@ -68,13 +68,13 @@
 			</article>
 
 			<c:forEach var="todo" items="${Dones}">
-					<article class="card" data-id="${todo.id}" id="ID${todo.id}" data-type="${todo.type}">
+					<article class="card" id="${todo.id}" data-type="${todo.type}">
 					<h3>
 						${todo.title}
 					</h3>
 					<br>
 					<h5>
-						등록날짜: ${todo.showRegdate()},
+						등록날짜: ${todo.regdateAsString},
 						${todo.name}, 우선순위 ${todo.sequence}
 					</h5>
 					<button>→</button>
@@ -88,7 +88,7 @@
 	    function mouse_click_event(article) {
 	        const article_info = article;
 	        return () => {
-	        	const move_information = 'id='+article.dataset.id+'&type='+article.dataset.type;
+	        	const move_information = 'id='+article_info.id+'&type='+article.dataset.type;
 	        	
 	        	request.open("POST", '/action');
 	        	request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
