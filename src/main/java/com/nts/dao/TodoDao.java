@@ -36,11 +36,12 @@ public class TodoDao {
 
 	}
 
-	public int addTodo(TodoDto todo) throws SQLException, NullPointerException {
+	public int addTodo(TodoDto todo) throws SQLException {
 		int result = 0;
 
 		try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWD);
 			PreparedStatement ps = conn.prepareStatement(INSERT_TODO)) {
+
 			ps.setString(1, todo.getTitle());
 			ps.setString(2, todo.getName());
 			ps.setInt(3, todo.getSequence());
@@ -83,7 +84,7 @@ public class TodoDao {
 		return todo;
 	}
 
-	public int updateTodo(TodoDto todo) throws SQLException, NullPointerException {
+	public int updateTodo(TodoDto todo) throws SQLException {
 		int result = 0;
 
 		try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWD);

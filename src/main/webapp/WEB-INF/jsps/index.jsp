@@ -85,8 +85,8 @@
 	</div>
 
 	<script>
-	    function mouse_click_event(article) {
-	        const article_info = article;
+	    function mouseClickEvent(article) {
+	        const articleInfo = article;
 	        return () => {
 	        	const move_information = 'id='+article.id.substring(2)+'&type='+article.dataset.type;
 	        	
@@ -94,17 +94,17 @@
 	        	request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	        	request.send(move_information);
 
-	        	article_info.remove();
+	        	articleInfo.remove();
 	        	
 	        	if(article.dataset.type === 'TODO'){
-	        		article_info.dataset.type = 'DOING';
-	        		document.querySelector('#DOING').innerHTML += article_info.outerHTML;
+	        		articleInfo.dataset.type = 'DOING';
+	        		document.querySelector('#DOING').innerHTML += articleInfo.outerHTML;
 	        	}else if(article.dataset.type === 'DOING'){
-	        		article_info.dataset.type = 'DONE';
-	        		document.querySelector('#DONE').innerHTML += article_info.outerHTML;
+	        		articleInfo.dataset.type = 'DONE';
+	        		document.querySelector('#DONE').innerHTML += articleInfo.outerHTML;
 	        	}
 	        	
-        		document.querySelector('#'+article_info.id).lastElementChild.addEventListener('click', mouse_click_event(document.querySelector('#'+article_info.id)));
+        		document.querySelector('#'+articleInfo.id).lastElementChild.addEventListener('click', mouse_click_event(document.querySelector('#'+articleInfo.id)));
 	        	
 	        }
 	    }
@@ -120,7 +120,7 @@
         const cards = document.querySelectorAll('.card');
         
         for (let index = 0; index < cards.length; index++) {
-        	cards[index].lastElementChild.addEventListener('click', mouse_click_event(cards[index]));
+        	cards[index].lastElementChild.addEventListener('click', mouseClickEvent(cards[index]));
         }
         
 	</script>
