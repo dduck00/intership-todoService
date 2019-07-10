@@ -119,8 +119,8 @@
 		
         const cards = document.querySelectorAll('.card');
         
-        for (var length = 0; length < cards.length; length++) {
-        	cards[length].lastElementChild.addEventListener('click', mouse_click_event(cards[length]));
+        for (let index = 0; index < cards.length; index++) {
+        	cards[index].lastElementChild.addEventListener('click', mouse_click_event(cards[index]));
         }
         
 	</script>
