@@ -15,15 +15,15 @@ public class TodoDao {
 	private static final String DB_USER = "user9";
 	private static final String DB_PASSWD = "user9";
 
-	private static final String SELECT_TODOS = "SELECT ID, TITLE, NAME, SEQUENCE, TYPE, REGDATE "
+	private static final String SELECT_TODOS = "SELECT id, title, name, sequence, type, regdate "
 		+ "FROM todo "
-		+ "ORDER BY REGDATE DESC ";
+		+ "ORDER BY regdate DESC ";
 
 	private static final String UPDATE_TODO = "UPDATE todo "
-		+ "SET TYPE = ? "
-		+ "WHERE ID = ?; ";
+		+ "SET type = ? "
+		+ "WHERE id = ?; ";
 
-	private static final String INSERT_TODO = "INSERT INTO todo(TITLE, NAME, SEQUENCE) "
+	private static final String INSERT_TODO = "INSERT INTO todo(title, name, sequence) "
 		+ "VALUES(?, ?, ?);";
 
 	public TodoDao() {
