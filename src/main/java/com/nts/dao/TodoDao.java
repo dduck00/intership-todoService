@@ -16,14 +16,14 @@ public class TodoDao {
 	private static final String DB_PASSWD = "user9";
 
 	private static final String SELECT_TODOS = "SELECT ID, TITLE, NAME, SEQUENCE, TYPE, REGDATE "
-		+ "FROM TODO "
+		+ "FROM todo "
 		+ "ORDER BY REGDATE DESC ";
 
-	private static final String UPDATE_TODO = "UPDATE TODO "
+	private static final String UPDATE_TODO = "UPDATE todo "
 		+ "SET TYPE = ? "
 		+ "WHERE ID = ?; ";
 
-	private static final String INSERT_TODO = "INSERT INTO TODO(TITLE, NAME, SEQUENCE) "
+	private static final String INSERT_TODO = "INSERT INTO todo(TITLE, NAME, SEQUENCE) "
 		+ "VALUES(?, ?, ?);";
 
 	public TodoDao() {
