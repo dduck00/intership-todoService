@@ -120,7 +120,7 @@
         const a = document.querySelectorAll('.card');
         
         for (var length = 0; length < a.length; length++) {
-            a[length].addEventListener('click', mouse_click_event(a[length]));
+            a[length].lastElementChild.addEventListener('click', mouse_click_event(a[length]));
         }
         
 	</script>
