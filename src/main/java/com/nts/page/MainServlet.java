@@ -37,12 +37,18 @@ public class MainServlet extends HttpServlet {
 			List<TodoDto> Dones = new ArrayList<>();
 
 			for (TodoDto todo : listTodo) {
-				if (todo.getType().equals("TODO")) {
-					Todos.add(todo);
-				} else if (todo.getType().equals("DOING")) {
-					Doings.add(todo);
-				} else if (todo.getType().equals("DONE")) {
-					Dones.add(todo);
+				switch (todo.getType()) {
+					case "TODO":
+						Todos.add(todo);
+						break;
+					case "DOING":
+						Doings.add(todo);
+						break;
+					case "DONE":
+						Dones.add(todo);
+						break;
+					default:
+						throw new NullPointerException("Todo load fail");
 				}
 			}
 
