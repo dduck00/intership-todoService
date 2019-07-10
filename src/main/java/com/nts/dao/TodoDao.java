@@ -5,29 +5,26 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.nts.dto.TodoDto;
 
 public class TodoDao {
-	private static final DateTimeFormatter DATE_PATTERN_DATA = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-
 	private static final String DB_URL = "jdbc:mysql://10.113.116.52:13306/user9";
 	private static final String DB_USER = "user9";
 	private static final String DB_PASSWD = "user9";
 
-	private static final String SELECT_TODOS = "select id, title, name, sequence, type, regdate "
-		+ "from todo "
-		+ "order by regdate desc ";
+	private static final String SELECT_TODOS = "SELECT ID, TITLE, NAME, SEQUENCE, TYPE, REGDATE "
+		+ "FROM TODO "
+		+ "ORDER BY REGDATE DESC ";
 
-	private static final String UPDATE_TODO = "update todo "
-		+ "set type = ? "
-		+ "where id = ?; ";
+	private static final String UPDATE_TODO = "UPDATE TODO "
+		+ "SET TYPE = ? "
+		+ "WHERE ID = ?; ";
 
-	private static final String INSERT_TODO = "insert into todo(title, name, sequence) "
-		+ "values(?, ?, ?);";
+	private static final String INSERT_TODO = "INSERT INTO TODO(TITLE, NAME, SEQUENCE) "
+		+ "VALUES(?, ?, ?);";
 
 	public TodoDao() {
 
