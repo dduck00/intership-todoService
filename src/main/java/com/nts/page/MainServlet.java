@@ -32,9 +32,9 @@ public class MainServlet extends HttpServlet {
 			List<TodoDto> listTodo = null;
 			listTodo = DB_CONNECTOR.getTodos();
 
-			List<TodoDto> Todos = new ArrayList<TodoDto>();
-			List<TodoDto> Doings = new ArrayList<TodoDto>();
-			List<TodoDto> Dones = new ArrayList<TodoDto>();
+			List<TodoDto> Todos = new ArrayList<>();
+			List<TodoDto> Doings = new ArrayList<>();
+			List<TodoDto> Dones = new ArrayList<>();
 
 			for (TodoDto todo : listTodo) {
 				if (todo.getType().equals("TODO")) {
