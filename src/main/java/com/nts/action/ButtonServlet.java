@@ -34,7 +34,7 @@ public class ButtonServlet extends HttpServlet {
 		try {
 			todoAccess.updateTodo(todo);
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 
 	}

@@ -17,6 +17,8 @@ public class ErrorServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 
+		System.out.println(request.getAttribute("javax.servlet.error.message"));
+
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/jsps/error.jsp");
 		requestDispatcher.forward(request, response);
 	}
