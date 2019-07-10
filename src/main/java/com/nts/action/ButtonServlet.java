@@ -1,7 +1,6 @@
 package com.nts.action;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -37,9 +36,6 @@ public class ButtonServlet extends HttpServlet {
 		} catch (SQLException e) {
 			throw new RuntimeException();
 		}
-
-		PrintWriter out = response.getWriter();
-		out.println(ret);
 
 	}
 

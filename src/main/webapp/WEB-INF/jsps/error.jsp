@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Error</title>
 </head>
 <body>
 <c:out value="${requestScope['javax.servlet.error.message'] }"/><br>

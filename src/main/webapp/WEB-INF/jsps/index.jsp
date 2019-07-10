@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Todo</title>
 <link rel="stylesheet" type="text/css" href="/style.css" />
 </head>
 <body>
@@ -25,7 +25,7 @@
 			</article>
 
 			<c:forEach var="todo" items="${Todos}">
-					<article class="card" data-id="${todo.id}"
+					<article class="card" data-id="${todo.id}" id="ID${todo.id}"
 						data-type="${todo.type}">
 						<h3>
 							${todo.title}
@@ -50,7 +50,7 @@
 			</article>
 
 			<c:forEach var="todo" items="${Doings}">
-					<article class="card" data-id="${todo.id}"
+					<article class="card" data-id="${todo.id}" id="ID${todo.id}"
 						data-type="${todo.type}">
 						<h3>
 							${todo.title}
@@ -75,7 +75,7 @@
 			</article>
 
 			<c:forEach var="todo" items="${Dones}">
-					<article class="card" data-id="${todo.id}"
+					<article class="card" data-id="${todo.id}" id="ID${todo.id}"
 						data-type="${todo.type}">
 					<h3>
 						${todo.title}
@@ -88,6 +88,7 @@
 						, 우선순위
 						${todo.sequence}
 					</h5>
+						<button>→</button>
 				</article>
 			</c:forEach>
 
@@ -100,18 +101,18 @@
 	        return () => {
 	        	request.open("GET", "/action?id="+article.dataset.id+"&type="+article.dataset.type)
 	        	request.send();
+
+	        	article_info.remove();
 	        	
 	        	if(article.dataset.type === 'TODO'){
+	        		article_info.dataset.type = 'DOING';
 	        		document.querySelector('#DOING').innerHTML += article_info.outerHTML;
-	        	}else if(article.dataset.type==='DOING'){
+	        	}else if(article.dataset.type === 'DOING'){
+	        		article_info.dataset.type = 'DONE';
 	        		document.querySelector('#DONE').innerHTML += article_info.outerHTML;
 	        	}
 	        	
-	        	
-	        	article_info.remove();
-	        	
-	        	
-	        	
+        		document.querySelector('#'+article_info.id).addEventListener('click', mouse_click_event(document.querySelector('#'+article_info.id)));
 	        	
 	        }
 	    }
