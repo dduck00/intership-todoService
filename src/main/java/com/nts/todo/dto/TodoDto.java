@@ -1,4 +1,4 @@
-package com.nts.dto;
+package com.nts.todo.dto;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;

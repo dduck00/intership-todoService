@@ -1,4 +1,4 @@
-package com.nts.dao;
+package com.nts.todo.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.nts.dto.TodoDto;
+import com.nts.todo.dto.TodoDto;
 
 public class TodoDao {
 	private static final String DB_URL = "jdbc:mysql://10.113.116.52:13306/user9";

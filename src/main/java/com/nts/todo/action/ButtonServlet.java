@@ -1,4 +1,4 @@
-package com.nts.action;
+package com.nts.todo.action;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.nts.dao.TodoDao;
-import com.nts.dto.TodoDto;
+import com.nts.todo.dao.TodoDao;
+import com.nts.todo.dto.TodoDto;
 
 @WebServlet("/action")
 public class ButtonServlet extends HttpServlet {
