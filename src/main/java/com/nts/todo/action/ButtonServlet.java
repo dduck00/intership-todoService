@@ -12,10 +12,22 @@ import javax.servlet.http.HttpServletResponse;
 import com.nts.todo.dao.TodoDao;
 import com.nts.todo.dto.TodoDto;
 
+/**
+ * 사용자로부터 post요청을 받아 데이터베이스를 업데이트 하는 서블릿
+ * @author 이상덕
+ * @version 1.0
+ */
 @WebServlet("/action")
 public class ButtonServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * 데이터베이스를 업데이트 하는 메소드
+	 * @author 이상덕
+	 * @exception ServeltException, IOException, NumberFormatException, NullPointerException, IllegalArgumentException
+	 * @param HttpServeltRequest, HttpServletResponse
+	 * @return void
+	 */
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {

@@ -15,11 +15,23 @@ import javax.servlet.http.HttpServletResponse;
 import com.nts.todo.dao.TodoDao;
 import com.nts.todo.dto.TodoDto;
 
+/**
+ * 사용자에게 메인 페이지를 제공하는 서블릿
+ * @author 이상덕
+ * @version 1.0
+ */
 @WebServlet("/main")
 public class MainServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final TodoDao DB_CONNECTOR = new TodoDao();
 
+	/**
+	 * 데이터베이스로부터 정보를 읽어 jsp로 데이터를 전달한다.
+	 * @author 이상덕
+	 * @exception ServeltException, IOException
+	 * @param HttpServeltRequest, HttpServletResponse, NumberFormatException, SQLException, NullPointerException, IllegalArgumentException
+	 * @return void
+	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {

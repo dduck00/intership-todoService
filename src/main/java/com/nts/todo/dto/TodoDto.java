@@ -4,6 +4,11 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * 데이터 저장 클래스
+ * @author 이상덕
+ * @version 1.0
+ */
 public class TodoDto {
 	private static final DateTimeFormatter DATE_PATTERN_DATA = DateTimeFormatter.ofPattern("yyyy/MM/dd");
 

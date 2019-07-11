@@ -10,6 +10,11 @@ import java.util.List;
 
 import com.nts.todo.dto.TodoDto;
 
+/**
+ * 데이터베이스에 접근하는 클래스
+ * @author 이상덕
+ * @version 1.0
+ */
 public class TodoDao {
 	private static final String DB_URL = "jdbc:mysql://10.113.116.52:13306/user9";
 	private static final String DB_USER = "user9";
@@ -27,7 +32,6 @@ public class TodoDao {
 		+ "VALUES(?, ?, ?);";
 
 	public TodoDao() {
-
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
