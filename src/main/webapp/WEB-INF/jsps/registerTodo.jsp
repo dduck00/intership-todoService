@@ -21,22 +21,22 @@
                     	어떤 일인가요?
                 </h4>
             </label>
-            <input type="text" name="title" id="what_todo" maxlength="24" placeholder="swift 공부하기">
+            <input type="text" name="title" id="what_todo" maxlength="24" placeholder="swift 공부하기" required>
             <label for="who_todo">
                 <h4 class="left_align">
                    	 누가 할일인가요?
                 </h4>
             </label>
-            <input type="text" name="name" id="who_todo" placeholder="홍길동">
+            <input type="text" name="name" id="who_todo" placeholder="홍길동" required>
 
             <h4 class="left_align">
                	 우선순위를 선택하세요
             </h4>
-            <input type="radio" name="sequence" value="1" id="sequence1">
+            <input type="radio" name="sequence" value="1" id="sequence1" required>
             <label for="sequence1">1</label>
-            <input type="radio" name="sequence" value="2" id="sequence2">
+            <input type="radio" name="sequence" value="2" id="sequence2" required>
             <label for="sequence2">2</label>
-            <input type="radio" name="sequence" value="3" id="sequence3">
+            <input type="radio" name="sequence" value="3" id="sequence3" required>
             <label for="sequence3">3</label>
 
             <br>
