@@ -27,10 +27,16 @@ public class ButtonServlet extends HttpServlet {
 			todo.setType(request.getParameter("type"));
 			todo.setId(Long.parseLong(request.getParameter("id")));
 
-			if (todo.getType().equals("TODO")) {
-				todo.setType("DOING");
-			} else if (todo.getType().equals("DOING")) {
-				todo.setType("DONE");
+			switch (todo.getType()) {
+				case "TODO":
+					todo.setType("DOING");
+					break;
+				case "DOING":
+					todo.setType("DONE");
+					break;
+				case "none":
+				default:
+					throw new NullPointerException("잘못된 type이 넘어왔습니다.");
 			}
 
 			todoAccess.updateTodo(todo);
