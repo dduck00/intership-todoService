@@ -34,9 +34,8 @@ public class ButtonServlet extends HttpServlet {
 				case "DOING":
 					todo.setType("DONE");
 					break;
-				case "none":
 				default:
-					throw new NullPointerException("잘못된 type이 넘어왔습니다.");
+					throw new IllegalArgumentException("잘못된 type이 넘어왔습니다.");
 			}
 
 			todoAccess.updateTodo(todo);
@@ -47,6 +46,8 @@ public class ButtonServlet extends HttpServlet {
 			throw new RuntimeException(e1);
 		} catch (NullPointerException e2) {
 			throw new RuntimeException(e2);
+		} catch (IllegalArgumentException e3) {
+			throw new RuntimeException(e3);
 		}
 
 	}
