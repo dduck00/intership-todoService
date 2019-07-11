@@ -29,7 +29,7 @@ public class MainServlet extends HttpServlet {
 	 * 데이터베이스로부터 정보를 읽어 jsp로 데이터를 전달한다.
 	 * @author 이상덕
 	 * @exception ServeltException, IOException
-	 * @param HttpServeltRequest, HttpServletResponse, NumberFormatException, SQLException, NullPointerException, IllegalArgumentException
+	 * @param HttpServeltRequest, HttpServletResponse, SQLException, NullPointerException, IllegalArgumentException
 	 * @return void
 	 */
 	@Override
@@ -71,14 +71,8 @@ public class MainServlet extends HttpServlet {
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/jsps/index.jsp");
 			requestDispatcher.forward(request, response);
 
-		} catch (SQLException e) {
+		} catch (SQLException | NullPointerException | IllegalArgumentException e) {
 			throw new RuntimeException(e);
-		} catch (NumberFormatException e1) {
-			throw new RuntimeException(e1);
-		} catch (NullPointerException e2) {
-			throw new RuntimeException(e2);
-		} catch (IllegalArgumentException e3) {
-			throw new RuntimeException(e3);
 		}
 
 	}

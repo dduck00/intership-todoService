@@ -41,7 +41,7 @@ public class AddTodoServlet extends HttpServlet {
 	/**
 	 * 데이터베이스에 추가하고 메인페이지로 이동하는 메소드
 	 * @author 이상덕
-	 * @exception ServeltException, IOException, NumberFormatException, NullPointerException
+	 * @exception ServeltException, IOException, IllegalArgumentException, NullPointerException
 	 * @param HttpServeltRequest, HttpServletResponse
 	 * @return void
 	 */
@@ -63,12 +63,8 @@ public class AddTodoServlet extends HttpServlet {
 
 			response.sendRedirect("/main");
 
-		} catch (SQLException e) {
+		} catch (SQLException | IllegalArgumentException | NullPointerException e) {
 			throw new RuntimeException(e);
-		} catch (NumberFormatException e1) {
-			throw new RuntimeException(e1);
-		} catch (NullPointerException e2) {
-			throw new RuntimeException(e2);
 		}
 
 	}

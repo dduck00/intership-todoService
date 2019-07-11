@@ -24,7 +24,7 @@ public class ButtonServlet extends HttpServlet {
 	/**
 	 * 데이터베이스를 업데이트 하는 메소드
 	 * @author 이상덕
-	 * @exception ServeltException, IOException, NumberFormatException, NullPointerException, IllegalArgumentException
+	 * @exception ServeltException, IOException, NullPointerException, IllegalArgumentException
 	 * @param HttpServeltRequest, HttpServletResponse
 	 * @return void
 	 */
@@ -52,14 +52,8 @@ public class ButtonServlet extends HttpServlet {
 
 			todoAccess.updateTodo(todo);
 
-		} catch (SQLException e) {
+		} catch (SQLException | NullPointerException | IllegalArgumentException e) {
 			throw new RuntimeException(e);
-		} catch (NumberFormatException e1) {
-			throw new RuntimeException(e1);
-		} catch (NullPointerException e2) {
-			throw new RuntimeException(e2);
-		} catch (IllegalArgumentException e3) {
-			throw new RuntimeException(e3);
 		}
 
 	}
