@@ -48,7 +48,7 @@ public class MainServlet extends HttpServlet {
 						Dones.add(todo);
 						break;
 					default:
-						throw new NullPointerException("Todo load fail");
+						throw new IllegalArgumentException("Todo load fail");
 				}
 			}
 
@@ -65,6 +65,8 @@ public class MainServlet extends HttpServlet {
 			throw new RuntimeException(e1);
 		} catch (NullPointerException e2) {
 			throw new RuntimeException(e2);
+		} catch (IllegalArgumentException e3) {
+			throw new RuntimeException(e3);
 		}
 
 	}
