@@ -118,10 +118,9 @@
 
 		
         const cards = document.querySelectorAll('.card');
-        
-        for (let index = 0; index < cards.length; index++) {
-        	cards[index].lastElementChild.addEventListener('click', mouseClickEvent(cards[index]));
-        }
+        cards.forEach((card) => {
+        	card.lastElementChild.addEventListener('click', mouseClickEvent(card));
+        });
         
 	</script>
 
