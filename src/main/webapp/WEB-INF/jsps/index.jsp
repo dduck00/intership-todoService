@@ -26,7 +26,7 @@
 			</article>
 
 			<c:forEach var="todo" items="${Todos}">
-					<article class="card" data-id="${todo.id } id="ID${todo.id}" data-type="${todo.type}">
+					<article class="card" data-id="${todo.id }" id="ID${todo.id}" data-type="${todo.type}">
 						<h3>
 							${todo.title}
 						</h3>
@@ -47,7 +47,7 @@
 			</article>
 
 			<c:forEach var="todo" items="${Doings}">
-					<article class="card" data-id="${todo.id } id="ID${todo.id}" data-type="${todo.type}">
+					<article class="card" data-id="${todo.id }" id="ID${todo.id}" data-type="${todo.type}">
 						<h3>
 							${todo.title}
 						</h3>
@@ -68,7 +68,7 @@
 			</article>
 
 			<c:forEach var="todo" items="${Dones}">
-					<article class="card" data-id="${todo.id } id="ID${todo.id}" data-type="${todo.type}">
+					<article class="card" data-id="${todo.id }" id="ID${todo.id}" data-type="${todo.type}">
 					<h3>
 						${todo.title}
 					</h3>
@@ -112,6 +112,9 @@
 		request.onreadystatechange = () => {
 		    if (request.status >= 400) {
 		        alert("서버 오류 발생");
+		    }
+		    if(request.readyState == 4 && request.responseText.length != 0){
+		    	alert(request.responseText);
 		    }
 		}
 	

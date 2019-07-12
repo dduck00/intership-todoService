@@ -36,21 +36,13 @@ public class ButtonServlet extends HttpServlet {
 			TodoDao todoAccess = new TodoDao();
 			TodoDto todo = makeTodoDto(request);
 
-			switch (todo.getType()) {
-				case "TODO":
-					todo.setType("DOING");
-					break;
-				case "DOING":
-					todo.setType("DONE");
-					break;
-				default:
-					throw new IllegalArgumentException("잘못된 type이 넘어왔습니다.");
+			if (todo.getType() != null) {
+				todo.setType(todo.getType().contentEquals("TODO") ? "DOING" : "DONE");
 			}
 
 			todoAccess.updateTodo(todo);
-
-		} catch (SQLException | NullPointerException | IllegalArgumentException e) {
-			throw new RuntimeException(e);
+		} catch (SQLException | IllegalArgumentException e) {
+			response.getOutputStream().print("Update Fail");
 		}
 
 	}
@@ -62,7 +54,7 @@ public class ButtonServlet extends HttpServlet {
 	 * @param HttpServeltRequest
 	 * @return TodoDto
 	 */
-	private TodoDto makeTodoDto(HttpServletRequest request) throws IllegalArgumentException, NullPointerException {
+	private TodoDto makeTodoDto(HttpServletRequest request) throws IllegalArgumentException {
 		TodoDto todo = new TodoDto();
 
 		todo.setType(request.getParameter("type"));
