@@ -36,11 +36,14 @@ public class ButtonServlet extends HttpServlet {
 			TodoDao todoAccess = new TodoDao();
 			TodoDto todo = makeTodoDto(request);
 
-			if (todo.getType() != null) {
-				todo.setType(todo.getType().contentEquals("TODO") ? "DOING" : "DONE");
+			if (!todo.getType().equals("TODO") || !todo.getType().equals("DOING")) {
+				throw new IllegalArgumentException();
 			}
 
+			todo.setType(todo.getType().equals("TODO") ? "DOING" : "DONE");
+
 			todoAccess.updateTodo(todo);
+
 		} catch (SQLException | IllegalArgumentException e) {
 			response.getOutputStream().print("Update Fail");
 		}
