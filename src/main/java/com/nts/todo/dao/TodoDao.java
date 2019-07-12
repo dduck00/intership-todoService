@@ -69,7 +69,7 @@ public class TodoDao {
 	 * @exception SQLException, NullPointerException
 	 * @return List<TodoDto>
 	 */
-	public List<TodoDto> getTodos() throws SQLException, NullPointerException {
+	public List<TodoDto> getTodos() throws SQLException {
 		List<TodoDto> listTodo = new ArrayList<>();
 
 		try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWD);
@@ -95,7 +95,7 @@ public class TodoDao {
 	 * @param ResultSet
 	 * @return TodoDto
 	 */
-	public TodoDto makeTodo(ResultSet rs) throws SQLException, NullPointerException {
+	public TodoDto makeTodo(ResultSet rs) throws SQLException {
 		TodoDto todo = new TodoDto();
 
 		todo.setId(rs.getLong("id"));

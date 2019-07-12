@@ -39,11 +39,13 @@ public class TodoDto {
 		return regdate;
 	}
 
-	public void setRegdate(Timestamp regdate) throws NullPointerException {
-		if (regdate == null) {
-			throw new NullPointerException("regdate is null");
+	public void setRegdate(Timestamp regdate) {
+		try {
+			this.regdate = regdate.toLocalDateTime();
+		} catch (NullPointerException e) {
+			System.out.println("regDate is null");
+			this.regdate = null;
 		}
-		this.regdate = regdate.toLocalDateTime();
 	}
 
 	public int getSequence() {
@@ -71,6 +73,9 @@ public class TodoDto {
 	}
 
 	public String getRegdateAsString() {
+		if (regdate == null) {
+			return "Wrong Date Fromat";
+		}
 		return regdate.format(DATE_PATTERN_DATA);
 	}
 
