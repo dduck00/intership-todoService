@@ -92,6 +92,7 @@ public class TodoDao {
 	 * 데이터베이스 SELECT 쿼리 결과를 바탕으로 TodoDto 객체 생성
 	 * @author 이상덕
 	 * @exception SQLException, NullPointerException
+	 * @param ResultSet
 	 * @return TodoDto
 	 */
 	public TodoDto makeTodo(ResultSet rs) throws SQLException, NullPointerException {
@@ -111,6 +112,7 @@ public class TodoDao {
 	 * TodoDto를 바탕으로 데이터베이스를 갱신한다.
 	 * @author 이상덕
 	 * @exception SQLException
+	 * @param TodoDto
 	 * @return int
 	 */
 	public int updateTodo(TodoDto todo) throws SQLException {

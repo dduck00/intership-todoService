@@ -34,10 +34,7 @@ public class ButtonServlet extends HttpServlet {
 
 		try {
 			TodoDao todoAccess = new TodoDao();
-			TodoDto todo = new TodoDto();
-
-			todo.setType(request.getParameter("type"));
-			todo.setId(Long.parseLong(request.getParameter("id")));
+			TodoDto todo = makeTodoDto(request);
 
 			switch (todo.getType()) {
 				case "TODO":
@@ -56,6 +53,22 @@ public class ButtonServlet extends HttpServlet {
 			throw new RuntimeException(e);
 		}
 
+	}
+
+	/**
+	 * Todo를 생성해주는 클래스
+	 * @author 이상덕
+	 * @exception IllegalArgumentException, NullPointerException
+	 * @param HttpServeltRequest
+	 * @return TodoDto
+	 */
+	private TodoDto makeTodoDto(HttpServletRequest request) throws IllegalArgumentException, NullPointerException {
+		TodoDto todo = new TodoDto();
+
+		todo.setType(request.getParameter("type"));
+		todo.setId(Long.parseLong(request.getParameter("id")));
+
+		return todo;
 	}
 
 }

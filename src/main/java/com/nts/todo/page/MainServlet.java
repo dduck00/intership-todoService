@@ -28,8 +28,8 @@ public class MainServlet extends HttpServlet {
 	/**
 	 * 데이터베이스로부터 정보를 읽어 jsp로 데이터를 전달한다.
 	 * @author 이상덕
-	 * @exception ServeltException, IOException
-	 * @param HttpServeltRequest, HttpServletResponse, SQLException, NullPointerException, IllegalArgumentException
+	 * @exception ServeltException, IOException, SQLException, NullPointerException, IllegalArgumentException
+	 * @param HttpServeltRequest, HttpServletResponse
 	 * @return void
 	 */
 	@Override

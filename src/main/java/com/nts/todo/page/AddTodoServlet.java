@@ -54,10 +54,7 @@ public class AddTodoServlet extends HttpServlet {
 
 		try {
 
-			TodoDto todo = new TodoDto();
-			todo.setName(request.getParameter("name"));
-			todo.setSequence(Integer.parseInt(request.getParameter("sequence")));
-			todo.setTitle(request.getParameter("title"));
+			TodoDto todo = makeTodoDto(request);
 
 			DB_CONNECTOR.addTodo(todo);
 
@@ -67,6 +64,23 @@ public class AddTodoServlet extends HttpServlet {
 			throw new RuntimeException(e);
 		}
 
+	}
+
+	/**
+	 * Todo를 생성해주는 클래스
+	 * @author 이상덕
+	 * @exception IllegalArgumentException, NullPointerException
+	 * @param HttpServeltRequest
+	 * @return TodoDto
+	 */
+	private TodoDto makeTodoDto(HttpServletRequest request) throws IllegalArgumentException, NullPointerException {
+		TodoDto todo = new TodoDto();
+
+		todo.setName(request.getParameter("name"));
+		todo.setSequence(Integer.parseInt(request.getParameter("sequence")));
+		todo.setTitle(request.getParameter("title"));
+
+		return todo;
 	}
 
 }
