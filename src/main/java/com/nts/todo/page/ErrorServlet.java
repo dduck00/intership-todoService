@@ -30,7 +30,7 @@ public class ErrorServlet extends HttpServlet {
 
 		System.out.println(request.getAttribute("javax.servlet.error.message"));
 
-		response.sendRedirect("/error.html");
+		response.sendRedirect("/html/error.html");
 	}
 
 }
