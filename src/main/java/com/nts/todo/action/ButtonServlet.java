@@ -36,7 +36,7 @@ public class ButtonServlet extends HttpServlet {
 			TodoDao todoAccess = new TodoDao();
 			TodoDto todo = makeTodoDto(request);
 
-			if (!todo.getType().equals("TODO") || !todo.getType().equals("DOING")) {
+			if (!todo.getType().equals("TODO") && !todo.getType().equals("DOING")) {
 				throw new IllegalArgumentException();
 			}
 
