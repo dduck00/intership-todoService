@@ -88,11 +88,11 @@
 	    function mouseClickEvent(article) {
 	        const articleInfo = article;
 	        return () => {
-	        	const move_information = 'id='+article.id.substring(2)+'&type='+article.dataset.type;
+	        	const moveInformation = 'id='+article.id.substring(2)+'&type='+article.dataset.type;
 	        	
 	        	request.open("POST", '/action');
 	        	request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-	        	request.send(move_information);
+	        	request.send(moveInformation);
 
 	        	articleInfo.remove();
 	        	
