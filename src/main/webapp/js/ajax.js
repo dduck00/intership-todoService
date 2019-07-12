@@ -1,7 +1,7 @@
 function mouseClickEvent(article) {
     const articleInfo = article;
     return () => {
-        const moveInformation = 'id=' + article.dataset.id + '&type=' + article.dataset.type;
+        const moveInformation = `id=${article.dataset.id}&type=${article.dataset.type}`
 
         request.open("POST", '/action');
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
