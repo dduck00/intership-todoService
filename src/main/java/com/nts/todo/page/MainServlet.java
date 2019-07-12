@@ -44,35 +44,33 @@ public class MainServlet extends HttpServlet {
 			List<TodoDto> listTodo = null;
 			listTodo = DB_CONNECTOR.getTodos();
 
-			List<TodoDto> Todos = new ArrayList<>();
-			List<TodoDto> Doings = new ArrayList<>();
-			List<TodoDto> Dones = new ArrayList<>();
+			List<TodoDto> todos = new ArrayList<>();
+			List<TodoDto> doings = new ArrayList<>();
+			List<TodoDto> dones = new ArrayList<>();
 
 			for (TodoDto todo : listTodo) {
 				switch (todo.getType()) {
 					case "TODO":
-						Todos.add(todo);
+						todos.add(todo);
 						break;
 					case "DOING":
-						Doings.add(todo);
+						doings.add(todo);
 						break;
 					case "DONE":
-						Dones.add(todo);
+						dones.add(todo);
 						break;
-					default:
-						throw new IllegalArgumentException("Todo load fail");
 				}
 			}
 
-			request.setAttribute("Todos", Todos);
-			request.setAttribute("Doings", Doings);
-			request.setAttribute("Dones", Dones);
+			request.setAttribute("Todos", todos);
+			request.setAttribute("Doings", doings);
+			request.setAttribute("Dones", dones);
 
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/jsps/index.jsp");
 			requestDispatcher.forward(request, response);
 
-		} catch (SQLException | NullPointerException | IllegalArgumentException e) {
-			throw new RuntimeException(e);
+		} catch (SQLException e) {
+			response.getOutputStream().println("<script>alert('DB load Fail');</script>");
 		}
 
 	}

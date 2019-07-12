@@ -60,8 +60,8 @@ public class AddTodoServlet extends HttpServlet {
 
 			response.sendRedirect("/main");
 
-		} catch (SQLException | IllegalArgumentException | NullPointerException e) {
-			throw new RuntimeException(e);
+		} catch (SQLException | IllegalArgumentException e) {
+			response.getOutputStream().println("<script>alert('Add Todo Fail'); location.href='/main';</script>");
 		}
 
 	}
@@ -73,7 +73,7 @@ public class AddTodoServlet extends HttpServlet {
 	 * @param HttpServeltRequest
 	 * @return TodoDto
 	 */
-	private TodoDto makeTodoDto(HttpServletRequest request) throws IllegalArgumentException, NullPointerException {
+	private TodoDto makeTodoDto(HttpServletRequest request) throws IllegalArgumentException {
 		TodoDto todo = new TodoDto();
 
 		todo.setName(request.getParameter("name"));
