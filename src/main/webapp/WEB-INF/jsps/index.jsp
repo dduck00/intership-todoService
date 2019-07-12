@@ -26,7 +26,7 @@
 			</article>
 
 			<c:forEach var="todo" items="${Todos}">
-					<article class="card" id="ID${todo.id}" data-type="${todo.type}">
+					<article class="card" data-id="${todo.id } id="ID${todo.id}" data-type="${todo.type}">
 						<h3>
 							${todo.title}
 						</h3>
@@ -47,7 +47,7 @@
 			</article>
 
 			<c:forEach var="todo" items="${Doings}">
-					<article class="card" id="ID${todo.id}" data-type="${todo.type}">
+					<article class="card" data-id="${todo.id } id="ID${todo.id}" data-type="${todo.type}">
 						<h3>
 							${todo.title}
 						</h3>
@@ -68,7 +68,7 @@
 			</article>
 
 			<c:forEach var="todo" items="${Dones}">
-					<article class="card" id="ID${todo.id}" data-type="${todo.type}">
+					<article class="card" data-id="${todo.id } id="ID${todo.id}" data-type="${todo.type}">
 					<h3>
 						${todo.title}
 					</h3>
@@ -85,42 +85,41 @@
 	</div>
 
 	<script>
-	    function mouseClickEvent(article) {
-	        const articleInfo = article;
-	        return () => {
-	        	const moveInformation = 'id='+article.id.substring(2)+'&type='+article.dataset.type;
-	        	
-	        	request.open("POST", '/action');
-	        	request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-	        	request.send(moveInformation);
-
-	        	articleInfo.remove();
-	        	
-	        	if(article.dataset.type === 'TODO'){
-	        		articleInfo.dataset.type = 'DOING';
-	        		document.querySelector('#DOING').innerHTML += articleInfo.outerHTML;
-	        	}else if(article.dataset.type === 'DOING'){
-	        		articleInfo.dataset.type = 'DONE';
-	        		document.querySelector('#DONE').innerHTML += articleInfo.outerHTML;
-	        	}
-	        	
-        		document.querySelector('#'+articleInfo.id).lastElementChild.addEventListener('click', mouseClickEvent(document.querySelector('#'+articleInfo.id)));
-	        	
-	        }
-	    }
+		function mouseClickEvent(article) {
+		    const articleInfo = article;
+		    return () => {
+		        const moveInformation = 'id=' + article.dataset.id + '&type=' + article.dataset.type;
+	
+		        request.open("POST", '/action');
+		        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		        request.send(moveInformation);
+	
+		        articleInfo.remove();
+	
+		        if (article.dataset.type === 'TODO') {
+		            articleInfo.dataset.type = 'DOING';
+		        } else if (article.dataset.type === 'DOING') {
+		            articleInfo.dataset.type = 'DONE';
+		        }
+		        document.querySelector('#' + articleInfo.dataset.type).innerHTML += articleInfo.outerHTML;
+	
+		        document.querySelector('#' + articleInfo.id).lastElementChild.addEventListener('click', mouseClickEvent(document.querySelector('#' + articleInfo.id)));
+	
+		    }
+		}
 	
 		const request = new XMLHttpRequest();
 		request.onreadystatechange = () => {
-			if (request.readyState === 4 && request.status === 200) { 
-				console.log("ajax 성공");
-			}
+		    if (request.status >= 400) {
+		        alert("서버 오류 발생");
+		    }
 		}
-
-		
-        const cards = document.querySelectorAll('.card');
-        cards.forEach((card) => {
-        	card.lastElementChild.addEventListener('click', mouseClickEvent(card));
-        });
+	
+	
+		const cards = document.querySelectorAll('.card');
+		cards.forEach((card) => {
+		    card.lastElementChild.addEventListener('click', mouseClickEvent(card));
+		});
         
 	</script>
 
