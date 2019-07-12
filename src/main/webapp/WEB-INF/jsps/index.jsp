@@ -114,7 +114,7 @@
 		        alert("서버 오류 발생");
 		    }
 		    
-		    if(request.readyState == 4 && request.responseText.length != 0){
+		    if(request.readyState === 4 && request.responseText.length !== 0){
 		    	alert(request.responseText);
 		    	location.reload(true);
 		    }
