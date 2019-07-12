@@ -40,6 +40,13 @@ public class TodoDao {
 
 	}
 
+	/**
+	 * 데이터베이스에 데이터를 저장한다.
+	 * @author 이상덕
+	 * @exception SQLException
+	 * @param TodoDto
+	 * @return int
+	 */
 	public int addTodo(TodoDto todo) throws SQLException {
 		int result = 0;
 
@@ -56,6 +63,12 @@ public class TodoDao {
 		return result;
 	}
 
+	/**
+	 * 데이터베이스에서 Todo 리스트를 가져온다.
+	 * @author 이상덕
+	 * @exception SQLException, NullPointerException
+	 * @return List<TodoDto>
+	 */
 	public List<TodoDto> getTodos() throws SQLException, NullPointerException {
 		List<TodoDto> listTodo = new ArrayList<>();
 
@@ -75,6 +88,12 @@ public class TodoDao {
 		return listTodo;
 	}
 
+	/**
+	 * 데이터베이스 SELECT 쿼리 결과를 바탕으로 TodoDto 객체 생성
+	 * @author 이상덕
+	 * @exception SQLException, NullPointerException
+	 * @return TodoDto
+	 */
 	public TodoDto makeTodo(ResultSet rs) throws SQLException, NullPointerException {
 		TodoDto todo = new TodoDto();
 
@@ -88,6 +107,12 @@ public class TodoDao {
 		return todo;
 	}
 
+	/**
+	 * TodoDto를 바탕으로 데이터베이스를 갱신한다.
+	 * @author 이상덕
+	 * @exception SQLException
+	 * @return int
+	 */
 	public int updateTodo(TodoDto todo) throws SQLException {
 		int result = 0;
 
