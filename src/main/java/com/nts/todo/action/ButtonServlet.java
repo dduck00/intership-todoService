@@ -39,7 +39,7 @@ public class ButtonServlet extends HttpServlet {
 			TodoDto todo = makeTodoDto(request);
 
 			if ((todo.getType().equals("TODO") || todo.getType().equals("DOING")) == false) {
-				throw new IllegalArgumentException("Todo의 형식이 일치하지 않습니다.");
+				throw new IllegalArgumentException("Todo의 type이 일치하지 않습니다.");
 			}
 
 			todo.setType(todo.getType().equals("TODO") ? "DOING" : "DONE");

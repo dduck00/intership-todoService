@@ -37,7 +37,6 @@ public class TodoDao {
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException(e);
 		}
-
 	}
 
 	/**
@@ -59,7 +58,6 @@ public class TodoDao {
 
 			result = ps.executeUpdate();
 		}
-
 		return result;
 	}
 
@@ -80,11 +78,8 @@ public class TodoDao {
 				while (rs.next()) {
 					listTodo.add(makeTodo(rs));
 				}
-
 			}
-
 		}
-
 		return listTodo;
 	}
 
