@@ -2,6 +2,7 @@ package com.nts.todo.page;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,9 +29,16 @@ public class ErrorServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 
+		int httpStatusCode = Integer.parseInt(request.getAttribute("javax.servlet.error.status_code").toString());
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/jsps/error.jsp");
+
 		System.out.println(request.getAttribute("javax.servlet.error.message"));
 
-		response.sendRedirect("/html/error.html");
+		if (httpStatusCode >= 400) {
+			request.setAttribute("errorStatus", httpStatusCode);
+		}
+
+		requestDispatcher.forward(request, response);
 	}
 
 }
