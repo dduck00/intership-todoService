@@ -16,7 +16,7 @@ function mouseClickEvent(article) {
         }
 
         document.querySelector(`#${articleInfo.dataset.type}`).innerHTML += articleInfo.outerHTML;
-        document.querySelector(`#${articleInfo.id}`).lastElementChild.addEventListener('click', mouseClickEvent(document.querySelector(`#${articleInfo.id}`));
+        document.querySelector(`#${articleInfo.id}`).lastElementChild.addEventListener('click', mouseClickEvent(document.querySelector(`#${articleInfo.id}`)));
     }
 }
 
