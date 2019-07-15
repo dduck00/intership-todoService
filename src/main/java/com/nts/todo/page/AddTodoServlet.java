@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,7 +22,6 @@ import com.nts.todo.dto.TodoDto;
 @WebServlet("/add-todo")
 public class AddTodoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final TodoDao DB_CONNECTOR = new TodoDao();
 
 	/**
 	 * 사용자가 새로운 TODO를 추가하고자 할 경우 해당 페이지로 연결해주는 기능 수행
@@ -49,11 +49,11 @@ public class AddTodoServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 
-		response.setCharacterEncoding("utf-8");
 		request.setCharacterEncoding("utf-8");
 
 		try {
-
+			ServletContext servletContext = this.getServletContext();
+			TodoDao DB_CONNECTOR = (TodoDao)servletContext.getAttribute("DB_CONNECTOR");
 			TodoDto todo = makeTodoDto(request);
 
 			DB_CONNECTOR.addTodo(todo);

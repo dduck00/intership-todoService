@@ -3,6 +3,7 @@ package com.nts.todo.action;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,7 +34,8 @@ public class ButtonServlet extends HttpServlet {
 		throws ServletException, IOException {
 
 		try {
-			TodoDao todoAccess = new TodoDao();
+			ServletContext servletContext = this.getServletContext();
+			TodoDao DB_CONNECTOR = (TodoDao)servletContext.getAttribute("DB_CONNECTOR");
 			TodoDto todo = makeTodoDto(request);
 
 			if ((todo.getType().equals("TODO") || todo.getType().equals("DOING")) == false) {
@@ -42,7 +44,7 @@ public class ButtonServlet extends HttpServlet {
 
 			todo.setType(todo.getType().equals("TODO") ? "DOING" : "DONE");
 
-			todoAccess.updateTodo(todo);
+			DB_CONNECTOR.updateTodo(todo);
 
 		} catch (SQLException | IllegalArgumentException e) {
 			System.out.println(e.getClass());
