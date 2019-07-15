@@ -14,10 +14,9 @@ function mouseClickEvent(article) {
         } else if (article.dataset.type === 'DOING') {
             articleInfo.dataset.type = 'DONE';
         }
-        document.querySelector('#' + articleInfo.dataset.type).innerHTML += articleInfo.outerHTML;
 
-        document.querySelector('#' + articleInfo.id).lastElementChild.addEventListener('click', mouseClickEvent(document.querySelector('#' + articleInfo.id)));
-
+        document.querySelector(`#${articleInfo.dataset.type}`).innerHTML += articleInfo.outerHTML;
+        document.querySelector(`#${articleInfo.id}`).lastElementChild.addEventListener('click', mouseClickEvent(document.querySelector(`#${articleInfo.id}`));
     }
 }
 
@@ -25,9 +24,10 @@ const request = new XMLHttpRequest();
 request.onreadystatechange = () => {
     if (request.status >= 400) {
         alert("서버 오류 발생");
+        return;
     }
-    
-    if(request.readyState === 4 && request.responseText.length !== 0){
+
+    if (request.readyState === 4 && request.responseText.length !== 0) {
         alert(request.responseText);
         location.reload(true);
     }

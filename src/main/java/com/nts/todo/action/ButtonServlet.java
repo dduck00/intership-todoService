@@ -24,7 +24,7 @@ public class ButtonServlet extends HttpServlet {
 	/**
 	 * 데이터베이스를 업데이트 하는 메소드
 	 * @author 이상덕
-	 * @exception ServeltException, IOException, NullPointerException, IllegalArgumentException
+	 * @exception ServeltException, IOException
 	 * @param HttpServeltRequest, HttpServletResponse
 	 * @return void
 	 */
@@ -36,8 +36,8 @@ public class ButtonServlet extends HttpServlet {
 			TodoDao todoAccess = new TodoDao();
 			TodoDto todo = makeTodoDto(request);
 
-			if (!(todo.getType().equals("TODO") || todo.getType().equals("DOING"))) {
-				throw new IllegalArgumentException();
+			if ((todo.getType().equals("TODO") || todo.getType().equals("DOING")) == false) {
+				throw new IllegalArgumentException("Todo의 형식이 일치하지 않습니다.");
 			}
 
 			todo.setType(todo.getType().equals("TODO") ? "DOING" : "DONE");
@@ -45,6 +45,8 @@ public class ButtonServlet extends HttpServlet {
 			todoAccess.updateTodo(todo);
 
 		} catch (SQLException | IllegalArgumentException e) {
+			System.out.println(e.getClass());
+			System.out.println(e.getMessage());
 			response.getOutputStream().print("Update Fail");
 		}
 
@@ -53,7 +55,7 @@ public class ButtonServlet extends HttpServlet {
 	/**
 	 * Todo를 생성해주는 클래스
 	 * @author 이상덕
-	 * @exception IllegalArgumentException, NullPointerException
+	 * @exception IllegalArgumentException
 	 * @param HttpServeltRequest
 	 * @return TodoDto
 	 */

@@ -100,10 +100,13 @@ public class TodoDao {
 
 		todo.setId(rs.getLong("id"));
 		todo.setName(rs.getString("name"));
-		todo.setRegdate(rs.getTimestamp("regdate"));
 		todo.setSequence(rs.getInt("sequence"));
 		todo.setTitle(rs.getString("title"));
 		todo.setType(rs.getString("type"));
+
+		if (rs.getTimestamp("regdate") != null) {
+			todo.setRegdate(rs.getTimestamp("regdate"));
+		}
 
 		return todo;
 	}

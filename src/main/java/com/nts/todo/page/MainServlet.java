@@ -62,14 +62,16 @@ public class MainServlet extends HttpServlet {
 				}
 			}
 
-			request.setAttribute("Todos", todos);
-			request.setAttribute("Doings", doings);
-			request.setAttribute("Dones", dones);
+			request.setAttribute("todos", todos);
+			request.setAttribute("doings", doings);
+			request.setAttribute("dones", dones);
 
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/jsps/index.jsp");
 			requestDispatcher.forward(request, response);
 
 		} catch (SQLException e) {
+			System.out.println(e.getClass());
+			System.out.println(e.getMessage());
 			response.getOutputStream().println("<script>alert('DB load Fail');</script>");
 		}
 

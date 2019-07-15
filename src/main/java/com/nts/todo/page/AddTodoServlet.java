@@ -61,6 +61,8 @@ public class AddTodoServlet extends HttpServlet {
 			response.sendRedirect("/main");
 
 		} catch (SQLException | IllegalArgumentException e) {
+			System.out.println(e.getClass());
+			System.out.println(e.getMessage());
 			response.getOutputStream().println("<script>alert('Add Todo Fail'); location.href='/main';</script>");
 		}
 

@@ -25,7 +25,7 @@
 				<h1>TODO</h1>
 			</article>
 
-			<c:forEach var="todo" items="${Todos}">
+			<c:forEach var="todo" items="${todos}">
 					<article class="card" data-id="${todo.id }" id="ID${todo.id}" data-type="${todo.type}">
 						<h3>
 							${todo.title}
@@ -46,7 +46,7 @@
 				<h1>DOING</h1>
 			</article>
 
-			<c:forEach var="todo" items="${Doings}">
+			<c:forEach var="todo" items="${doings}">
 					<article class="card" data-id="${todo.id }" id="ID${todo.id}" data-type="${todo.type}">
 						<h3>
 							${todo.title}
@@ -67,7 +67,7 @@
 				<h1>DONE</h1>
 			</article>
 
-			<c:forEach var="todo" items="${Dones}">
+			<c:forEach var="todo" items="${dones}">
 					<article class="card" data-id="${todo.id }" id="ID${todo.id}" data-type="${todo.type}">
 					<h3>
 						${todo.title}

@@ -29,7 +29,9 @@ public class ErrorServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 
-		int httpStatusCode = Integer.parseInt(request.getAttribute("javax.servlet.error.status_code").toString());
+		String httpStatusCodeString = request.getAttribute("javax.servlet.error.status_code").toString();
+		int httpStatusCode = Integer.parseInt(httpStatusCodeString);
+
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/jsps/error.jsp");
 
 		System.out.println(request.getAttribute("javax.servlet.error.message"));

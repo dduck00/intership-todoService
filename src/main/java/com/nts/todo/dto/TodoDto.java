@@ -40,12 +40,7 @@ public class TodoDto {
 	}
 
 	public void setRegdate(Timestamp regdate) {
-		try {
-			this.regdate = regdate.toLocalDateTime();
-		} catch (NullPointerException e) {
-			System.out.println("regDate is null");
-			this.regdate = null;
-		}
+		this.regdate = regdate.toLocalDateTime();
 	}
 
 	public int getSequence() {
