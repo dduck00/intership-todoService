@@ -33,12 +33,9 @@ public class TodoDao {
 
 	private TodoDao() {}
 
-	private static TodoDao instance;
+	private static TodoDao instance = new TodoDao();
 
 	public static TodoDao getInstance() {
-		if (instance == null) {
-			instance = new TodoDao();
-		}
 		return instance;
 	}
 
