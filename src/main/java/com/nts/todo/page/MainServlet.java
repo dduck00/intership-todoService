@@ -23,7 +23,7 @@ import com.nts.todo.dto.TodoDto;
 @WebServlet("/main")
 public class MainServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final TodoDao DB_CONNECTOR = new TodoDao();
+	private static final TodoDao DB_CONNECTOR = TodoDao.getInstance();
 
 	/**
 	 * 데이터베이스로부터 정보를 읽어 jsp로 데이터를 전달한다.

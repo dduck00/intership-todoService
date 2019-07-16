@@ -31,6 +31,17 @@ public class TodoDao {
 	private static final String INSERT_TODO = "INSERT INTO todo(title, name, sequence) "
 		+ "VALUES(?, ?, ?);";
 
+	private TodoDao() {}
+
+	private static TodoDao instance;
+
+	public static TodoDao getInstance() {
+		if (instance == null) {
+			instance = new TodoDao();
+		}
+		return instance;
+	}
+
 	/**
 	 * 데이터베이스에 데이터를 저장한다.
 	 * @author 이상덕

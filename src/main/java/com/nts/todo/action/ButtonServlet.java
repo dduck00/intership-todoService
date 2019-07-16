@@ -20,7 +20,7 @@ import com.nts.todo.dto.TodoDto;
 @WebServlet("/action")
 public class ButtonServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final TodoDao DB_CONNECTOR = new TodoDao();
+	private static final TodoDao DB_CONNECTOR = TodoDao.getInstance();
 
 	/**
 	 * 데이터베이스를 업데이트 하는 메소드

@@ -21,7 +21,7 @@ import com.nts.todo.dto.TodoDto;
 @WebServlet("/add-todo")
 public class AddTodoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final TodoDao DB_CONNECTOR = new TodoDao();
+	private static final TodoDao DB_CONNECTOR = TodoDao.getInstance();
 
 	/**
 	 * 사용자가 새로운 TODO를 추가하고자 할 경우 해당 페이지로 연결해주는 기능 수행
