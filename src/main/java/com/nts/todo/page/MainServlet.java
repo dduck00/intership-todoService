@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,6 +23,7 @@ import com.nts.todo.dto.TodoDto;
 @WebServlet("/main")
 public class MainServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final TodoDao DB_CONNECTOR = new TodoDao();
 
 	/**
 	 * 데이터베이스로부터 정보를 읽어 jsp로 데이터를 전달한다.
@@ -39,8 +39,6 @@ public class MainServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 
 		try {
-			ServletContext servletContext = this.getServletContext();
-			TodoDao DB_CONNECTOR = (TodoDao)servletContext.getAttribute("DB_CONNECTOR");
 			List<TodoDto> listTodo = null;
 			listTodo = DB_CONNECTOR.getTodos();
 

@@ -3,7 +3,6 @@ package com.nts.todo.action;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,6 +20,7 @@ import com.nts.todo.dto.TodoDto;
 @WebServlet("/action")
 public class ButtonServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final TodoDao DB_CONNECTOR = new TodoDao();
 
 	/**
 	 * 데이터베이스를 업데이트 하는 메소드
@@ -34,8 +34,6 @@ public class ButtonServlet extends HttpServlet {
 		throws ServletException, IOException {
 
 		try {
-			ServletContext servletContext = this.getServletContext();
-			TodoDao DB_CONNECTOR = (TodoDao)servletContext.getAttribute("DB_CONNECTOR");
 			TodoDto todo = makeTodoDto(request);
 
 			if ((todo.getType().equals("TODO") || todo.getType().equals("DOING")) == false) {

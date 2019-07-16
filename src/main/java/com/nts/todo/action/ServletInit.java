@@ -4,15 +4,15 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-import com.nts.todo.dao.TodoDao;
-
-public class DaoInit implements ServletContextListener {
+public class ServletInit implements ServletContextListener {
 
 	@Override
 	public void contextInitialized(ServletContextEvent servletContextEvent) {
-		ServletContext servletContext = servletContextEvent.getServletContext();
-		TodoDao dbConnector = new TodoDao();
-		servletContext.setAttribute("DB_CONNECTOR", dbConnector);
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			throw new IllegalStateException("Jdbc diver is no Exists.", e);
+		}
 	}
 
 	@Override

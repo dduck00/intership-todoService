@@ -31,14 +31,6 @@ public class TodoDao {
 	private static final String INSERT_TODO = "INSERT INTO todo(title, name, sequence) "
 		+ "VALUES(?, ?, ?);";
 
-	public TodoDao() {
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-			throw new RuntimeException(e);
-		}
-	}
-
 	/**
 	 * 데이터베이스에 데이터를 저장한다.
 	 * @author 이상덕
