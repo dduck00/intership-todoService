@@ -36,6 +36,10 @@ public class ButtonServlet extends HttpServlet {
 		try {
 			TodoDto todo = makeTodoDto(request);
 
+			if (todo == null) {
+				throw new NullPointerException("todo is null");
+			}
+
 			if ((todo.getType().equals("TODO") || todo.getType().equals("DOING")) == false) {
 				throw new IllegalArgumentException("Todo의 type이 일치하지 않습니다.");
 			}
@@ -44,7 +48,7 @@ public class ButtonServlet extends HttpServlet {
 
 			DB_CONNECTOR.updateTodo(todo);
 
-		} catch (SQLException | IllegalArgumentException e) {
+		} catch (SQLException | IllegalArgumentException | NullPointerException e) {
 			System.out.println(e.getClass());
 			System.out.println(e.getMessage());
 			response.getOutputStream().print("Update Fail");
