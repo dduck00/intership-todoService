@@ -100,7 +100,7 @@ public class TodoDao {
 		todo.setType(rs.getString("type"));
 
 		if (rs.getTimestamp("regdate") != null) {
-			todo.setRegdate(rs.getTimestamp("regdate"));
+			todo.setRegdate(rs.getTimestamp("regdate").toLocalDateTime());
 		}
 
 		return todo;

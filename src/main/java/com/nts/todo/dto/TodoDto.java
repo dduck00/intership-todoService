@@ -1,6 +1,5 @@
 package com.nts.todo.dto;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -39,8 +38,8 @@ public class TodoDto {
 		return regdate;
 	}
 
-	public void setRegdate(Timestamp regdate) {
-		this.regdate = regdate.toLocalDateTime();
+	public void setRegdate(LocalDateTime regdate) {
+		this.regdate = regdate;
 	}
 
 	public int getSequence() {
