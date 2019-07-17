@@ -1,6 +1,5 @@
 package com.nts.todo.action;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
@@ -16,9 +15,5 @@ public class ServletInit implements ServletContextListener {
 	}
 
 	@Override
-	public void contextDestroyed(ServletContextEvent servletContextEvent) {
-		ServletContext servletContext = servletContextEvent.getServletContext();
-		servletContext.removeAttribute("DB_CONNECTOR");
-	}
-
+	public void contextDestroyed(ServletContextEvent sce) {}
 }
