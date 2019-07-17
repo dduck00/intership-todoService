@@ -1,0 +1,53 @@
+div {
+    margin-left:20%;
+    margin-top: 100px;
+    display: inline-flex;
+}
+
+section {
+    width:360px;
+    padding:0px;
+}
+
+article {
+    margin: 15px;
+    height: 60px;
+    padding:15px;
+    width: 300px;
+    display: inline-block;
+}
+
+.title_row {
+    text-align: center;
+}
+
+.title_row {
+    background-color: rgb(61, 175, 228);
+}
+
+.card {
+    background-color: aqua;
+}
+
+.card h3 {
+    margin:0px;
+}
+
+.card h5 {
+    margin:0px;
+    display: inline-block;
+}
+
+#DONE article button {
+	visibility : hidden;
+}
+
+.make_file_button {
+    background-color: aqua;
+    width:100px;
+    height:60px;
+    text-decoration: none;
+    margin:15px;
+    border:0px;
+    padding:0;
+}
