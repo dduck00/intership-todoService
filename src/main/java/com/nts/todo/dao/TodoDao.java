@@ -33,10 +33,10 @@ public class TodoDao {
 
 	private TodoDao() {}
 
-	private static TodoDao instance = new TodoDao();
+	private static TodoDao INSTANCE = new TodoDao();
 
 	public static TodoDao getInstance() {
-		return instance;
+		return INSTANCE;
 	}
 
 	/**
